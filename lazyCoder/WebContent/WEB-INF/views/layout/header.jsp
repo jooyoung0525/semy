@@ -100,7 +100,7 @@ img{
 	<div class="header">
 			<div class="header-box1" ></div>
 			<div class="header-box2" >
-				<img alt="로고이미지" src="../img/logo3.png" >
+				<img alt="로고이미지" src="${pageContext.request.contextPath}/resource/img/logo3.png" >
 			</div>
 			<div class="header-box3" > 로그인 | 회원가입</div>
 	</div>

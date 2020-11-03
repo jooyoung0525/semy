@@ -22,9 +22,6 @@ margin-bottom: 10px;
 .imgbox1{
 display: flex;
 justify-content: center;
-      z-index: auto;
-      position: relative;
-        bottom: 38px;
 
 }
 
@@ -65,12 +62,6 @@ width: 100px;
 	<div class="main">
 		<div class="bbs" id="bbs1">
 			<p>사진게시판</p>
-			<div class="imgbox1">
-				<div class="imgbox">사진1</div>
-				<div class="imgbox">사진2</div>
-				<div class="imgbox">사진3</div>
-				<div class="imgbox">사진4</div>
-			</div>
 		</div>
 		
 		<div class="bbs" id="bbs2">
