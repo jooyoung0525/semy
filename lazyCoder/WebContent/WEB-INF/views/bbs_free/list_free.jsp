@@ -37,7 +37,11 @@
 </head>
 <body>
 
+header
 
+content
+
+footer
 
 
 </body>
