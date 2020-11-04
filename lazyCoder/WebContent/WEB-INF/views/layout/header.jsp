@@ -215,7 +215,7 @@ img {
 					src="${pageContext.request.contextPath}/resource/img/logo3.png">
 			</div>
 			<div class="header-box3">
-				<a href="#">로그인</a> | <a href="#">회원가입</a>
+				<a href="#">로그인</a> | <a href="${pageContext.request.contextPath}/member/member.do">회원가입</a>
 			</div>
 		</div>
 
@@ -225,13 +225,14 @@ img {
 			<ul class="clear">
 				<li class="active"><a href="#">Home</a></li>
 
-				<li><a class="drop" href="#">자유 게시판</a>
+				<li><a class="drop" href="#">커뮤니티</a>
 					<ul>
+						<li><a href="#">자유게시판</a></li>
 						<li><a href="#">HOT게시판</a></li>
 						<li><a href="#">사진게시판</a></li>
 					</ul></li>
 
-				<li><a class="drop" href="#">소스코드 게시판</a>
+				<li><a class="drop" href="#">비밀의 소스코드</a>
 					<ul>
 						<li><a href="#">C</a></li>
 						<li><a href="#">C++</a></li>

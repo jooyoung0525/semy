@@ -86,6 +86,18 @@ font-size: 20px;
 	background-color: skyblue;
 	border: none;
 }
+.menu {
+display: flex;
+margin: 0 auto;
+width: 100%;
+
+}
+.menu-item{
+width: 18%;
+height: 150px;
+background: yellow;
+margin: 1%;
+}
 </style>
 </head>
 <body>
@@ -120,7 +132,15 @@ font-size: 20px;
 	</div>
 	
 	<div class="bbs">
-	hot 게시판 일부 노출
+		<div class="menu">
+			<div class="menu-item">
+				<img src="${pageContect.request.contextPath}/resource/img/idea.png" style="b">
+			</div>
+			<div class="menu-item">2</div>
+			<div class="menu-item">3</div>
+			<div class="menu-item">4</div>
+			<div class="menu-item">5</div>
+		</div>
 	</div>
 	
 	<div class="bbs">
