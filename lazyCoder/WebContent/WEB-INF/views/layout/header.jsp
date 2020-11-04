@@ -221,7 +221,15 @@ img {
                 <a href="${pageContext.request.contextPath}/member/member.do">회원가입</a>
             </c:if>
             <c:if test="${not empty sessionScope.member}">
-                <span style="color:blue;">${sessionScope.member.userName}</span>님
+	            <c:choose>
+	            <c:when test="${sessionScope.member.memberClass==1}">
+	                <span style="color:green;">코딩초보</span>
+	            </c:when>
+	            <c:when test="${sessionScope.member.memberClass==2}">
+	                <span style="color:blue;">코딩고인물</span>
+	            </c:when>
+	            </c:choose>
+                <span style="color:black;">${sessionScope.member.userName}</span>님
                     &nbsp;|&nbsp;
                     <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
                     &nbsp;|&nbsp;

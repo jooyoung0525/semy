@@ -4,8 +4,14 @@ package com.member;
 public class SessionInfo {
 	private String userId;
 	private String userName;
+	private int memberClass;
 	
-	
+	public int getMemberClass() {
+		return memberClass;
+	}
+	public void setMemberClass(int memberClass) {
+		this.memberClass = memberClass;
+	}
 	public String getUserId() {
 		return userId;
 	}
