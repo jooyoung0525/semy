@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
 <%-- <link
 	href="${pageContext.request.contextPath}/resource/styles/layout.css"
 	rel="stylesheet" type="text/css" media="all"> --%>
@@ -61,7 +64,7 @@ ul,li{list-style:none;}
 #pos4:checked~.pos>label:nth-child(4){background:#666;}
 
 #main-test{
-padding-top: 150px;
+padding-top: 100px;
 padding-left: 100px;
 color: white;
 font-size: 20px;
@@ -90,7 +93,10 @@ font-size: 20px;
 display: flex;
 margin: 0 auto;
 width: 100%;
-
+}
+#main-test{
+font-family: 'Jua', sans-serif;
+font-size: 40px;
 }
 .menu-item{
 width: 18%;
@@ -98,13 +104,14 @@ height: 150px;
 background: none;
 margin: 1%;
 text-align: center;
-
+	font-family: 'Jua', sans-serif;
 }
 .menu-items{
 display: flex;
 margin: 0 auto;
 width: 130px;
 height: 130px;
+
 }
 </style>
 </head>
@@ -121,7 +128,7 @@ height: 130px;
   <input type="radio" name="pos" id="pos4">
   <ul>
     <li>
-    <p id="main-test">안녕하세요 <br>뺀질코딩입니다.<br><br>
+    <p id="main-test">안녕하세요 <br>뺀질코딩입니다.<br>
     <button class="main-button hover1">바로가기</button>
     </p>
     </li>
@@ -142,7 +149,7 @@ height: 130px;
 	<div class="bbs">
 		<div class="menu">
 			<div class="menu-item">
-				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/idea.png">
+				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/idea.png" onclick="">
 				<p>커뮤니티</p>
 			</div>
 			<div class="menu-item">

@@ -234,9 +234,11 @@ img {
 		<nav id="mainav">  
 			<!-- ################################################################################################ -->
 			<ul class="clear">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 
-				<li><a class="drop" href="#">커뮤니티</a>
+				<li><a class="drop" href="#">what? 뺀질코딩</a>
+				</li>
+				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_free/list_free.jsp">커뮤니티</a>
 					<ul>
 						<li><a href="#">자유게시판</a></li>
 						<li><a href="#">HOT게시판</a></li>
