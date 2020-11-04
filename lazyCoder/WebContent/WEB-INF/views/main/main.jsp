@@ -224,7 +224,7 @@
 					<li>
 						<p id="main-test">
 							안녕하세요 <br>뺀질코딩입니다.<br>
-							<button class="main-button hover1">더 알아보기</button>
+							<button class="main-button hover1" onclick="location.href='${pageContext.request.contextPath}/intro/intro.jsp'">더 알아보기</button>
 						</p>
 					</li>
 					<li></li>
