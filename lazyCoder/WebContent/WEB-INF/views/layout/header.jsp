@@ -215,7 +215,7 @@ img {
 					src="${pageContext.request.contextPath}/resource/img/logo3.png">
 			</div>
 			<div class="header-box3">
-				<a href="#">로그인</a> | <a href="${pageContext.request.contextPath}/member/member.do">회원가입</a>
+				<a href="#">로그인</a> | <a href="${pageContext.request.contextPath}/member/member.do">회원가입 </a>
 			</div>
 		</div>
 
