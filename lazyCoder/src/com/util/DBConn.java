@@ -13,7 +13,7 @@ public class DBConn {
 	public static Connection getConnection() {
 		// String url="jdbc:oracle:thin:@127.0.0.1:1521:ORCL";
 		String url="jdbc:oracle:thin:@localhost:1521:XE";
-		String user="skyblue";
+		String user="lazy";
 		String pwd="java$!";
 		
 		if(conn==null) {

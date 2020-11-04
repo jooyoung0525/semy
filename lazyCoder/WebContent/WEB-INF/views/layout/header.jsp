@@ -215,7 +215,18 @@ img {
 					src="${pageContext.request.contextPath}/resource/img/logo3.png">
 			</div>
 			<div class="header-box3">
-				<a href="${pageContext.request.contextPath}/member/member.do">로그인</a> | <a href="${pageContext.request.contextPath}/member/member.do">회원가입 </a>
+			            <c:if test="${empty sessionScope.member}">
+                <a href="${pageContext.request.contextPath}/member/login.do">로그인</a>
+                    &nbsp;|&nbsp;
+                <a href="${pageContext.request.contextPath}/member/member.do">회원가입</a>
+            </c:if>
+            <c:if test="${not empty sessionScope.member}">
+                <span style="color:blue;">${sessionScope.member.userName}</span>님
+                    &nbsp;|&nbsp;
+                    <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+                    &nbsp;|&nbsp;
+                    <a href="${pageContext.request.contextPath}">정보수정</a>
+            </c:if>
 			</div>
 		</div>
   
