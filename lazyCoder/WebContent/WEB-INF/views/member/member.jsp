@@ -12,11 +12,18 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/jquery/css/smoothness/jquery-ui.min.css" type="text/css">
-
+<style type="text/css">
+.container {
+	width: 1080px;
+	margin: 0 auto; /* 중앙정렬 */
+	padding: 15px 0;
+}
+</style>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 
 <script type="text/javascript">
+
 function memberOk() {
 	var f = document.memberForm;
 	var str;
@@ -157,12 +164,9 @@ function userIdCheck() {
 </script>
 </head>
 <body>
-
-<div class="header">
-    <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-</div>
-	
 <div class="container">
+    <jsp:include page="/WEB-INF/views/layout/header.jsp"/>
+	
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
             <h3><span style="font-family: Webdings">2</span> ${title} </h3>

@@ -18,7 +18,7 @@
 }
 .bbs{
 height: 200px;
-background-color: silver;
+background-color: none;
 margin-bottom: 10px;
 margin-top: 20px;
 

@@ -39,11 +39,11 @@ public class MemberServlet extends HttpServlet{
 		
 		if(uri.indexOf("login.do")!=-1) {
 			loginForm(req, resp);
-		}/*else if (uri.indexOf("login_ok.do")!=-1) {
+		}else if (uri.indexOf("login_ok.do")!=-1) {
 			loginSubmit(req, resp);
 		}else if (uri.indexOf("logout.do")!=-1) {
 			logout(req, resp);
-		}*/else if (uri.indexOf("member.do")!=-1) {
+		}else if (uri.indexOf("member.do")!=-1) {
 			memberForm(req, resp);
 		}else if (uri.indexOf("member_ok.do")!=-1) {
 			memberSubmit(req, resp);
@@ -66,7 +66,7 @@ public class MemberServlet extends HttpServlet{
 		String path="/WEB-INF/views/member/login.jsp";
 		forward(req, resp, path);
 	}
-	/*
+	
 	protected void loginSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//로그인 처리
 		
@@ -79,7 +79,7 @@ public class MemberServlet extends HttpServlet{
 			MemberDTO dto=dao.readMember(userId);
 			
 			if(dto!=null) {
-				if(dto.getUserPwd().equals(userPwd)&&dto.getEnabled()==1) {
+				if(dto.getUserPwd().equals(userPwd)) {
 					//로그인 성공
 					HttpSession session=req.getSession();//세션 객체
 					
@@ -124,7 +124,7 @@ public class MemberServlet extends HttpServlet{
 		String cp=req.getContextPath();
 		resp.sendRedirect(cp);
 	}
-	*/
+	
 	protected void memberForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//회원가입 폼
 		req.setAttribute("mode", "member");
