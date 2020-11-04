@@ -95,8 +95,16 @@ width: 100%;
 .menu-item{
 width: 18%;
 height: 150px;
-background: yellow;
+background: none;
 margin: 1%;
+text-align: center;
+
+}
+.menu-items{
+display: flex;
+margin: 0 auto;
+width: 130px;
+height: 130px;
 }
 </style>
 </head>
@@ -134,12 +142,26 @@ margin: 1%;
 	<div class="bbs">
 		<div class="menu">
 			<div class="menu-item">
-				<img src="${pageContect.request.contextPath}/resource/img/idea.png" style="b">
+				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/idea.png">
+				<p>커뮤니티</p>
 			</div>
-			<div class="menu-item">2</div>
-			<div class="menu-item">3</div>
-			<div class="menu-item">4</div>
-			<div class="menu-item">5</div>
+			<div class="menu-item">
+				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/coding.png">
+				<p>코드소스</p>
+			</div>
+			<div class="menu-item">
+			
+				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/book-stack.png">
+				<p>지식인</p>
+			</div>
+			<div class="menu-item">
+				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/404-error.png">
+				<p>에러떠요!</p>
+			</div>
+			<div class="menu-item">
+				<img class="menu-items" src="${pageContext.request.contextPath}/resource/img/noticeboard.png">
+				<p>공지게시판</p>
+			</div>
 		</div>
 	</div>
 	
