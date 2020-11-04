@@ -20,7 +20,6 @@
 }
 .aside {
 	height: 600px;
-	background-color: none;
 	width: 25%;
 	float :left;
 }
@@ -40,8 +39,8 @@ margin-left: 30px;
   height: 100%;
   width: 100%;
   transition: all .6s ease-in-out;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-  background-color: #394263;
+/*   background-color: #394263; */
+  background-image: url('${pageContext.request.contextPath}/resource/img/aside2.png');
 }
 
 .sidenav.active {

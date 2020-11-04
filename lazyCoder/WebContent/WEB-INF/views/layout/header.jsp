@@ -223,10 +223,10 @@ img {
             <c:if test="${not empty sessionScope.member}">
 	            <c:choose>
 	            <c:when test="${sessionScope.member.memberClass==1}">
-	                <span style="color:green;">코딩초보</span>
+	                <span style="color:green;">뺀질이</span>
 	            </c:when>
 	            <c:when test="${sessionScope.member.memberClass==2}">
-	                <span style="color:blue;">코딩고인물</span>
+	                <span style="color:blue;">코인물</span>
 	            </c:when>
 	            </c:choose>
                 <span style="color:black;">${sessionScope.member.userName}</span>님
@@ -246,7 +246,7 @@ img {
 
 				<li><a class="drop" href="#">what? 뺀질코딩</a>
 				</li>
-				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_free/list_free.jsp">커뮤니티</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/list_free.jsp">커뮤니티</a>
 					<ul>
 						<li><a href="#">자유게시판</a></li>
 						<li><a href="#">HOT게시판</a></li>
@@ -272,7 +272,7 @@ img {
 						<li><a href="#">NullPointer 에러</a></li>
 						<li><a href="#">Exception 예외</a></li>
 					</ul></li>
-				<li><a class="drop" href="#">공지게시판</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/notice/list.do">공지게시판</a>
 					<ul>
 						<li><a href="#">공지사항</a></li>
 						<li><a href="#">채용공고</a></li>
