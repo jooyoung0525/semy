@@ -218,7 +218,7 @@ img {
 				<a href="${pageContext.request.contextPath}/member/member.do">로그인</a> | <a href="${pageContext.request.contextPath}/member/member.do">회원가입 </a>
 			</div>
 		</div>
-
+  
 
 		<nav id="mainav">  
 			<!-- ################################################################################################ -->
