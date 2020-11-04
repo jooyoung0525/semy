@@ -8,6 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="${pageContext.request.contextPath}/resource/styles/layout.css"
+	rel="stylesheet" type="text/css" media="all">
 <style type="text/css">
 .container {
 	width: 1080px;
@@ -41,7 +44,31 @@
 
 	<div class="content">
 	<!--aside 왼쪽 메뉴바 -->
-		<div class="aside"></div>
+		<div class="aside">
+		      <nav class="sdb_holder">
+        <ul>
+          <li><a href="#">Navigation - Level 1</a></li>
+          <li><a href="#">Navigation - Level 1</a>
+            <ul>
+              <li><a href="#">Navigation - Level 2</a></li>
+              <li><a href="#">Navigation - Level 2</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Navigation - Level 1</a>
+            <ul>
+              <li><a href="#">Navigation - Level 2</a></li>
+              <li><a href="#">Navigation - Level 2</a>
+                <ul>
+                  <li><a href="#">Navigation - Level 3</a></li>
+                  <li><a href="#">Navigation - Level 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Navigation - Level 1</a></li>
+        </ul>
+      </nav>
+		</div>
 	<!--본문 내용 게시판 -->
 		<div class="section">
 

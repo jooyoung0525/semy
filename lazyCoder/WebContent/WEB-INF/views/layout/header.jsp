@@ -1,156 +1,267 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
+<%-- <link
+	href="${pageContext.request.contextPath}/resource/styles/layout.css"
+	rel="stylesheet" type="text/css" media="all"> --%>
 <style type="text/css">
 .container {
 	width: 1080px;
-	margin: 0 auto;/* 중앙정렬 */
-	
+	margin: 0 auto; /* 중앙정렬 */
+	padding: 15px 0;
 }
 
-.header{
+.header {
 	height: 100px;
 	background-color: none;
-	display:flex;
+	display: flex;
 	margin: 0 auto;
-	border-bottom: 3px solid silver;
 	margin-bottom: 15px;
-	position: relative;
-	z-index: 10;
 }
+
 .header-box1 {
 	width: 33%;
 	margin: 0 auto;
 }
-.header-box2{
+
+.header-box2 {
 	width: 33%;
 	margin: 0 auto;
 	text-align: center;
-
 }
-.header-box3{
+
+.header-box3 {
 	width: 33%;
 	margin: 0 auto;
 	line-height: 100px;
 	text-align: right;
 	font-family: 'Jua', sans-serif;
 }
+
 .nav {
 	height: 30px;
 	display: flex;
-	margin: 0 auto;/* 중앙정렬 */
+	margin: 0 auto; /* 중앙정렬 */
 	border-bottom: 3px solid silver;
 	padding-bottom: 13px;
 	margin-bottom: 10px;
-	
-}
-.nav-item-dropbtn1{
-	cursor: pointer;
-	border: 0;
-	outline: 0;
-	background: none;
-	font-family: 'Jua', sans-serif;
-	font-size: 18px;
-}
-.nav-item-drop1 {
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-}
-.nav-item-drop-content{
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	font-family: 'Jua', sans-serif;
-	background-color: white;
-}
-.nav-item-drop-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.nav-item-drop-content a:hover {
-    background-color: #f1f1f1
-}
-.nav-item-drop1:hover .nav-item-drop-content {
-    display: block;
-}
-.nav-item-drop1:hover .nav-item-dropbtn1 {
-    background-color: white;
-    color: skyblue;
 }
 
-img{
+/* Navigation
+--------------------------------------------------------------------------------------------------------------- */
+nav ul, nav ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#mainav, #breadcrumb, .sidebar nav {
+	line-height: normal;
+}
+
+#mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after,
+	.sidebar nav a::after {
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 14px;
+	line-height: 10px;
+}
+
+/* Top Navigation */
+#mainav {
+	border: solid;
+	border-width: 1px 0;
+	font-family: 'Jua', sans-serif;
+}
+
+#mainav ul {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#mainav ul ul {
+	z-index: 9999;
+	position: absolute;
+	width: 160px;
+	text-transform: none;
+	text-align: left;
+}
+
+#mainav ul ul ul {
+	left: 160px;
+	top: 0;
+}
+
+#mainav li {
+	display: inline-block;
+	position: relative;
+	margin: 0 30px 0 0;
+	padding: 0;
+}
+
+#mainav li:last-child {
+	margin-right: 0;
+}
+
+#mainav li li {
+	width: 100%;
+	margin: 0;
+}
+
+#mainav li a {
+	display: block;
+	padding: 20px 0;
+}
+
+#mainav li li a {
+	border: solid;
+	border-width: 0 0 1px 0;
+}
+
+#mainav .drop {
+	padding-left: 30px;
+	font-size: 15px;
+}
+
+#mainav li li a, #mainav li li .drop {
+	display: block;
+	margin: 0;
+	padding: 10px 15px;
+}
+
+
+#mainav ul ul {
+	visibility: hidden;
+	opacity: 0;
+}
+
+#mainav ul li:hover>ul {
+	visibility: visible;
+	opacity: 1;
+}
+
+#mainav form {
+	display: none;
+	margin: 0;
+	padding: 20px 0;
+}
+
+#mainav form select, #mainav form select option {
+	display: block;
+	cursor: pointer;
+	outline: none;
+}
+
+#mainav form select {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid;
+}
+
+#mainav form select option {
+	margin: 5px;
+	padding: 0;
+	border: none;
+}
+
+/* Navigation */
+#mainav li a {
+	color: inherit;
+}
+
+#mainav .active a, #mainav a:hover, #mainav li:hover>a {
+	color: #FFA41F;
+	background-color: inherit;
+}
+
+#mainav li li a, #mainav .active li a {
+	color: #FFFFFF;
+	background-color: rgba(0, 0, 0, .6);
+	border-color: rgba(0, 0, 0, .3);
+}
+
+#mainav li li:hover>a, #mainav .active .active>a {
+	color: #FFFFFF;
+	background-color: #FFA41F;
+}
+
+#mainav form select {
+	color: #FFFFFF;
+	background-color: #000000;
+	border-color: rgba(255, 255, 255, .3);
+}
+
+img {
 	width: 173px;
 	height: 100px;
 }
 </style>
 </head>
 <body>
-<div class="container">
-	<div class="header">
-			<div class="header-box1" ></div>
-			<div class="header-box2" >
-				<img alt="로고이미지" src="${pageContext.request.contextPath}/resource/img/logo3.png" >
+	<div class="container">
+		<div class="header">
+			<div class="header-box1"></div>
+			<div class="header-box2">
+				<img alt="로고이미지"
+					src="${pageContext.request.contextPath}/resource/img/logo3.png">
 			</div>
-			<div class="header-box3" > 로그인 | 회원가입</div>
-	</div>
-	
-	
-	<div class="nav">
-	<div class="nav-item-drop1">
-		<button class="nav-item-dropbtn1">자유게시판</button>
-		<div class="nav-item-drop-content">
-			<a href="#">자유게시판</a>
-			<a href="#">추천게시판</a>
-			<a href="#">사진게시판</a>
+			<div class="header-box3">
+				<a href="#">로그인</a> | <a href="#">회원가입</a>
+			</div>
 		</div>
-	</div>
-	
-		<div class="nav-item-drop1">
-		<button class="nav-item-dropbtn1">소스코드 게시판</button>
-		<div class="nav-item-drop-content">
-			<a href="#">C언어</a>
-			<a href="#">JAVA</a>
-			<a href="#">자바스크립트</a>
-			<a href="#">C++</a>
-		</div>
-	</div>
-		<div class="nav-item-drop1">
-		<button class="nav-item-dropbtn1">지식인 게시판</button>
-		<div class="nav-item-drop-content">
-			<a href="#">책추천</a>
-			<a href="#">강의 공유 게시판</a>
-		</div>
-	</div>
-		<div class="nav-item-drop1">
-		<button class="nav-item-dropbtn1">에러떠요</button>
-		<div class="nav-item-drop-content">
-			<a href="#">404/500에러</a>
-			<a href="#">NULLPOINT</a>
-			<a href="#">EXCEPTION</a>
-		</div>
-	</div>
-		<div class="nav-item-drop1">
-		<button class="nav-item-dropbtn1">공지사항</button>
-		<div class="nav-item-drop-content">
-			<a href="#">공지사항</a>
-			<a href="#">채용공고</a>
-			<a href="#">출석체크</a>
-		</div>
-	</div>
 
+
+		<nav id="mainav">
+			<!-- ################################################################################################ -->
+			<ul class="clear">
+				<li class="active"><a href="#">Home</a></li>
+
+				<li><a class="drop" href="#">자유 게시판</a>
+					<ul>
+						<li><a href="#">HOT게시판</a></li>
+						<li><a href="#">사진게시판</a></li>
+					</ul></li>
+
+				<li><a class="drop" href="#">소스코드 게시판</a>
+					<ul>
+						<li><a href="#">C</a></li>
+						<li><a href="#">C++</a></li>
+						<li><a href="#">JAVA</a></li>
+						<li><a href="#">HTML/CSS</a></li>
+						<li><a href="#">JAVASCRIPT</a></li>
+					</ul></li>
+				<li><a class="drop" href="#">지식인</a>
+					<ul>
+						<li><a href="#">좋은책추천해요</a></li>
+						<li><a href="#">유용한 강의 공유</a></li>
+					</ul></li>
+				<li><a class="drop" href="#">에러떠요!</a>
+					<ul>
+						<li><a href="#">404/500 에러</a></li>
+						<li><a href="#">NullPointer 에러</a></li>
+						<li><a href="#">Exception 예외</a></li>
+					</ul></li>
+				<li><a class="drop" href="#">공지게시판</a>
+					<ul>
+						<li><a href="#">공지사항</a></li>
+						<li><a href="#">채용공고</a></li>
+						<li><a href="#">출석체크!</a></li>
+					</ul></li>
+
+
+			</ul>
+			<!-- ################################################################################################ -->
+		</nav>
 	</div>
-</div>
 
 
 

@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%-- <link
+	href="${pageContext.request.contextPath}/resource/styles/layout.css"
+	rel="stylesheet" type="text/css" media="all"> --%>
 <style type="text/css">
 .container {
 	width: 1080px;
@@ -17,41 +20,71 @@
 height: 200px;
 background-color: silver;
 margin-bottom: 10px;
-
-}
-.imgbox1{
-display: flex;
-justify-content: center;
+margin-top: 20px;
 
 }
 
-.imgbox {
-width: 200px;
-height: 150px;
-background-color: red;
-margin: 20px;
+
+
+<!-- 상단 광고 이미지 슬라이드 style 코드 -->
+ul,li{list-style:none;}
+#slide{height:400px;position:relative;overflow:hidden;}
+#slide ul{width:400%;height:100%;transition:1s; list-style: none; padding: 0;}
+#slide ul:after{content:"";display:block;clear:both;}
+#slide li{float:left;width:25%;height:100%;}
+#slide li:nth-child(1){
+	background:url("${pageContext.request.contextPath}/resource/img/main1.jpg");
+	background-size: cover;
+	}
+#slide li:nth-child(2){		
+	background:url("${pageContext.request.contextPath}/resource/img/main2.jpg");
+	background-size: cover;
+	}
+#slide li:nth-child(3){		
+	background:url("${pageContext.request.contextPath}/resource/img/main1.jpg");
+	background-size: cover;
+	}
+#slide li:nth-child(4){		
+	background:url("${pageContext.request.contextPath}/resource/img/main2.jpg");
+	background-size: cover;
+	}
+#slide input{display:none;}
+#slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+#slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+#pos1:checked~ul{margin-left:0%;}
+#pos2:checked~ul{margin-left:-100%;}
+#pos3:checked~ul{margin-left:-200%;}
+#pos4:checked~ul{margin-left:-300%;}
+#pos1:checked~.pos>label:nth-child(1){background:#666;}
+#pos2:checked~.pos>label:nth-child(2){background:#666;}
+#pos3:checked~.pos>label:nth-child(3){background:#666;}
+#pos4:checked~.pos>label:nth-child(4){background:#666;}
+
+#main-test{
+padding-top: 150px;
+padding-left: 100px;
+color: white;
+font-size: 20px;
 }
 
-.bbs2-table{
-width: 800px;
-text-align: center;
-border-spacing: 0; border-collapse:collapse;
-margin-left: 100px;
+.main-button{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 2;
+	border:none;
+	border-radius: 10px;
+	text-align: center;
+	cursor: pointer;
+	background:white;
+	color: black;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
-
-.bbs2-table tr{
-	border-bottom: 3px solid blue;
-
-}
-.bbs2-table th{
-	height: 40px;
-	border-bottom: 3px solid blue;
-	width: 100px;
-}
-
-.bbs2-table td{
-width: 100px;
-	border-bottom: 3px solid blue;
+.main-button:hover{color:#fff;}
+.hover1:hover{
+	box-shadow:200px 0 0 0 rgba(0,0,0,0,5) inset;
+	background-color: skyblue;
+	border: none;
 }
 </style>
 </head>
@@ -60,30 +93,38 @@ width: 100px;
 	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 	
 	<div class="main">
-		<div class="bbs" id="bbs1">
-			<p>사진게시판</p>
-		</div>
-		
-		<div class="bbs" id="bbs2">
-			추천게시판
-			<table class="bbs2-table">
-				<tr>
-					<td width="20%">작성자</td>
-					<td width="60%">제목</td>
-					<td width="40%">작성일</td>
-				</tr>
-				<tr>
-					<td >이영헌</td>
-					<td >소스코드 알려주세요</td>
-					<td >2020</td>
-				</tr>
+	
+<div id="slide">
+  <input type="radio" name="pos" id="pos1" checked>
+  <input type="radio" name="pos" id="pos2">
+  <input type="radio" name="pos" id="pos3">
+  <input type="radio" name="pos" id="pos4">
+  <ul>
+    <li>
+    <p id="main-test">안녕하세요 <br>뺀질코딩입니다.<br><br>
+    <button class="main-button hover1">바로가기</button>
+    </p>
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <p class="pos">
+    <label for="pos1"></label>
+    <label for="pos2"></label>
+    <label for="pos3"></label>
+    <label for="pos4"></label>
+  </p>
+</div>
 
-			</table>
-			
-		</div>	
-		<div class="bbs" id="bbs3">
-			공지사항
-		</div>	
+	</div>
+	
+	<div class="bbs">
+	hot 게시판 일부 노출
+	</div>
+	
+	<div class="bbs">
+	공지 게시판
 	</div>
 	
 	
