@@ -249,9 +249,9 @@ img {
 
 				<li><a class="drop" href="${pageContext.request.contextPath}/intro/intro.jsp">what? 뺀질코딩</a>
 				</li>
-				<li><a class="drop" href="${pageContext.request.contextPath}/list_free.jsp">커뮤니티</a>
+				<li><a class="drop" href="#">커뮤니티</a>
 					<ul>
-						<li><a href="#">자유게시판</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_free/list_free.do">자유게시판</a></li>
 						<li><a href="#">HOT게시판</a></li>
 						<li><a href="#">사진게시판</a></li>
 					</ul></li>
