@@ -38,7 +38,6 @@
 	height: 600px;
 	width: 70%;
 	border-radius: 20px;
-	border: 3px solid silver;
 }
 .body-container{
 margin-left: 30px;
@@ -78,7 +77,7 @@ margin-left: 30px;
 
 .sidenav__list-item {
   padding: 20px 20px 20px 40px;
-  color: #ddd;
+  color: black;
   font-family: 'Jua', sans-serif;
   font-size: 20px;
 }
@@ -145,7 +144,7 @@ margin-left: 30px;
 
 <div class="content">
 <div class="aside">
-		  <aside class="sidenav" style="background-image: url('${pageContext.request.contextPath}/resource/img/aside2.png');">
+		  <aside class="sidenav" style="background-image: url('${pageContext.request.contextPath}/resource/img/aside3.png');">
 		    <div class="sidenav__close-icon">
 		      <i class="fas fa-times sidenav__brand-close"></i>
 		    </div>
@@ -156,7 +155,7 @@ margin-left: 30px;
 		    </ul>
 		  </aside>
 </div>
-<div class="section">
+<div class="section" style="background: url('${pageContext.request.contextPath}/resource/img/container1.png');">
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">

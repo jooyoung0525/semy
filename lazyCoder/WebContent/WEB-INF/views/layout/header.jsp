@@ -249,7 +249,7 @@ img {
 
 				<li><a class="drop" href="${pageContext.request.contextPath}/intro/intro.jsp">what? 뺀질코딩</a>
 				</li>
-				<li><a class="drop" href="#">커뮤니티</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_free/list_free.do">커뮤니티</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/bbs_free/list_free.do">자유게시판</a></li>
 						<li><a href="#">HOT게시판</a></li>
@@ -277,7 +277,7 @@ img {
 					</ul></li>
 				<li><a class="drop" href="${pageContext.request.contextPath}/notice/list.do">공지게시판</a>
 					<ul>
-						<li><a href="#">공지사항</a></li>
+						<li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
 						<li><a href="#">채용공고</a></li>
 						<li><a href="#">출석체크!</a></li>
 					</ul></li>
