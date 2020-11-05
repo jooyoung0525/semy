@@ -6,6 +6,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link
+	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/jquery/css/smoothness/jquery-ui.min.css" type="text/css">
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 .container {
@@ -19,33 +29,92 @@
 	/* display: flex; */
 }
 .aside {
-	height: 200px;
-	background-color: skyblue;
+	height: 600px;
 	width: 25%;
 	float :left;
 }
 .section {
 	float :right;
-	height: 200px;
-	background-color: yellow;
-	width: 65%;
-	
+	height: 600px;
+	width: 70%;
+	border-radius: 20px;
+	border: 3px solid silver;
+}
+.body-container{
+margin-left: 30px;
+}
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: all .6s ease-in-out;
+/*   background-color: #394263; */
+  
+  border-radius: 20px;
+  
 }
 
+.sidenav.active {
+  transform: translateX(0);
+}
 
+.sidenav__close-icon {
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+  
+}
+
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: #ddd;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+}
+
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
 </style>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>
+
 </head>
 <body>
 
+<div class="container">
+<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 
-<div class="header">
-    <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
+<div class="content">
+<div class="aside">
+		  <aside class="sidenav" style="background-image: url('${pageContext.request.contextPath}/resource/img/aside2.png');">
+		    <div class="sidenav__close-icon">
+		      <i class="fas fa-times sidenav__brand-close"></i>
+		    </div>
+		    <ul class="sidenav__list">
+		      <li class="sidenav__list-item">자유게시판</li>
+		      <li class="sidenav__list-item">HOT이슈</li>
+		      <li class="sidenav__list-item">사진게시판</li>
+		    </ul>
+		  </aside>
 </div>
-	
+<div class="section">
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
+            <h3><span style="font-family: Webdings">2</span> 자유 게시판 </h3>
         </div>
         
         <div>
@@ -124,13 +193,12 @@
 
     </div>
 </div>
-
-<div class="footer">
-    <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
+</div>
+</div>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>
+<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
+</div>
 
 </body>
 </html>

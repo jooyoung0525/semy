@@ -247,7 +247,7 @@
 			</div>
 
 		</div>
-
+<p style="font-size: 20px;">| 뺀질코딩 카테고리</p>
 		<div class="bbs">
 			<div class="menu">
 				<div class="menu-item">
@@ -279,7 +279,7 @@
 				</div>
 			</div>
 		</div>
-		<p style="font-size: 20px;">뺀질코더의 스토리</p>
+		<p style="font-size: 20px;">| 뺀질코더들의 이야기</p>
 		<div class="bbs" id="bbs-img">
 		
 		<div class="main-frame">

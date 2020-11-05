@@ -24,7 +24,6 @@ public class BoardServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//¤²¤¸¤§
 		process(req,resp);
 	}
 

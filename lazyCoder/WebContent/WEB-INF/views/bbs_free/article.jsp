@@ -28,9 +28,7 @@ function deleteBoard(num) {
 </head>
 <body>
 
-<div class="header">
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-</div>
 	
 <div class="container">
     <div class="body-container" style="width: 700px;">
@@ -57,7 +55,7 @@ function deleteBoard(num) {
 			
 			<tr style="border-bottom: 1px solid #cccccc;">
 			  <td colspan="2" align="left" style="padding: 10px 5px;" valign="top" height="200">
-			      ${dto.content}
+			   ${dto.content}
 			   </td>
 			</tr>
 			
@@ -94,9 +92,7 @@ function deleteBoard(num) {
     </div>
 </div>
 
-<div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
-</div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>
