@@ -198,14 +198,23 @@
 	height: 100px;
 }
 #bbs-img{
+	width:100%;
 	display: flex;
 	margin: 0 auto;
 	text-align: center;
 }
-.main-imgbbs{
-	width: 200px;
-	height: 400px;
-	
+.main-frame{
+	width: 30%;
+	height:250px;
+	margin:2.5%;
+	background: none;
+}
+.img-box{
+	width: 90%;
+	height : 80%;
+	margin: 5%;
+	border-radius: 20px;
+	border: 2px solid silver;
 }
 </style>
 </head>
@@ -270,26 +279,31 @@
 				</div>
 			</div>
 		</div>
-		<p>뺀질코더의 스토리</p>
+		<p style="font-size: 20px;">뺀질코더의 스토리</p>
 		<div class="bbs" id="bbs-img">
-		<div class="main-imgbbs">
-			<img alt="사진게시판/책추천게시판" src="${pageContext.request.contextPath}/resource/img/noticeboard.png">
-			<p>글 제목</p>
-		</div>
-		<div class="main-imgbbs">
-			<img alt="사진게시판/책추천게시판" src="${pageContext.request.contextPath}/resource/img/noticeboard.png">
-			<p>글 제목</p>
-		</div>
-		<div class="main-imgbbs">
-			<img alt="사진게시판/책추천게시판" src="${pageContext.request.contextPath}/resource/img/noticeboard.png">
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;">
+			</div>
+			
 			<p>글 제목</p>
 		</div>
 		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;">
+			</div>
+			<p>글 제목</p>
+		</div>
 		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;">
+			</div>
+			<p>글 제목</p>
+		</div>
 		
 		</div>
 
-
+<br><br><br><br><br><br>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 
