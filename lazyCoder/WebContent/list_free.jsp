@@ -29,8 +29,9 @@
 .section {
 	float :right;
 	height: 600px;
-	background-color: skyblue;
 	width: 70%;
+	border-radius: 20px;
+	border: 3px solid silver;
 }
 .body-container{
 margin-left: 30px;
@@ -43,7 +44,9 @@ margin-left: 30px;
   width: 100%;
   transition: all .6s ease-in-out;
 /*   background-color: #394263; */
-  background-image: url('${pageContext.request.contextPath}/resource/img/aside2.png');
+  
+  border-radius: 20px;
+  
 }
 
 .sidenav.active {
@@ -86,7 +89,7 @@ margin-left: 30px;
 
 <div class="content">
 <div class="aside">
-		  <aside class="sidenav">
+		  <aside class="sidenav" style="background-image: url('${pageContext.request.contextPath}/resource/img/aside2.png');">
 		    <div class="sidenav__close-icon">
 		      <i class="fas fa-times sidenav__brand-close"></i>
 		    </div>

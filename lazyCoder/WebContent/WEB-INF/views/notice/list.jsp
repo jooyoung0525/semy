@@ -1,20 +1,93 @@
-﻿<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>spring</title>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link
+	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/jquery/css/smoothness/jquery-ui.min.css" type="text/css">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
+<title>Insert title here</title>
+<style type="text/css">
+.container {
+	width: 1080px;
+	margin: 0 auto;/* 중앙정렬 */
+	
+}
+
+.content{
+	overflow:hidden;
+	/* display: flex; */
+}
+.aside {
+	height: 600px;
+	width: 25%;
+	float :left;
+}
+.section {
+	float :right;
+	height: 600px;
+	width: 70%;
+	border-radius: 20px;
+	border: 3px solid silver;
+}
+.body-container{
+margin-left: 30px;
+}
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: all .6s ease-in-out;
+/*   background-color: #394263; */
+  
+  border-radius: 20px;
+  
+}
+
+.sidenav.active {
+  transform: translateX(0);
+}
+
+.sidenav__close-icon {
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+  
+}
+
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: #ddd;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+}
+
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+</style>
 <script type="text/javascript">
 	function searchList() {
 		var f=document.searchForm;
@@ -67,10 +140,25 @@
 </head>
 <body>
 
-    <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-	
 <div class="container">
-    <div class="body-container" style="width: 750px;">
+<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
+
+<div class="content">
+<div class="aside">
+		  <aside class="sidenav" style="background-image: url('${pageContext.request.contextPath}/resource/img/aside2.png');">
+		    <div class="sidenav__close-icon">
+		      <i class="fas fa-times sidenav__brand-close"></i>
+		    </div>
+		    <ul class="sidenav__list">
+		      <li class="sidenav__list-item">공지사항</li>
+		      <li class="sidenav__list-item">채용공고</li>
+		      <li class="sidenav__list-item">출석체크</li>
+		    </ul>
+		  </aside>
+</div>
+<div class="section">
+<div class="container">
+    <div class="body-container" style="width: 700px;">
         <div class="body-title">
             <h3><span style="font-family: Webdings">2</span> 공지사항 </h3>
         </div>
@@ -205,12 +293,12 @@
         
     </div>
 </div>
-
-<div class="footer">
-    <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
+</div>
+</div>
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>
+<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
+</div>
+
 </body>
 </html>

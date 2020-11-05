@@ -58,7 +58,7 @@
 	height: 100%;
 }
 
-#slide li:nth-child(1) {
+/* #slide li:nth-child(1) {
 	background:
 		url("${pageContext.request.contextPath}/resource/img/main1.jpg");
 	background-size: cover;
@@ -80,7 +80,7 @@
 	background:
 		url("${pageContext.request.contextPath}/resource/img/main2.jpg");
 	background-size: cover;
-}
+} */
 
 #slide input {
 	display: none;
@@ -230,15 +230,15 @@
 					name="pos" id="pos3"> <input type="radio" name="pos"
 					id="pos4">
 				<ul>
-					<li>
+					<li style="background:url('${pageContext.request.contextPath}/resource/img/main1.jpg'); background-size: cover;">
 						<p id="main-test">
 							안녕하세요 <br>뺀질코딩입니다.<br>
 							<button class="main-button hover1" onclick="location.href='${pageContext.request.contextPath}/intro/intro.jsp'">더 알아보기</button>
 						</p>
 					</li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li style="background:url('${pageContext.request.contextPath}/resource/img/main2.jpg'); background-size: cover;"></li>
+					<li style="background:url('${pageContext.request.contextPath}/resource/img/main1.jpg'); background-size: cover;"></li>
+					<li style="background:url('${pageContext.request.contextPath}/resource/img/main2.jpg'); background-size: cover;"></li>
 				</ul>
 				<p class="pos">
 					<label for="pos1"></label> <label for="pos2"></label> <label
@@ -283,24 +283,49 @@
 		<div class="bbs" id="bbs-img">
 		
 		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
 			</div>
 			
 			<p>글 제목</p>
 		</div>
 		
 		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
 			</div>
 			<p>글 제목</p>
 		</div>
 		
 		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
 			</div>
 			<p>글 제목</p>
 		</div>
 		
+
+		</div>
+		<br><br><br><br><br><br>
+		<div class="bbs" id="bbs-img">
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			
+			<p>글 제목</p>
+		</div>
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			<p>글 제목</p>
+		</div>
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			<p>글 제목</p>
+		</div>
+		
+
 		</div>
 
 <br><br><br><br><br><br>
