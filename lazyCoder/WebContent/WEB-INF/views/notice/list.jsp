@@ -137,7 +137,7 @@
 			      <td>${dto.hitCount}</td>
 			      <td>
 						<c:if test="${not empty dto.saveFilename}">
-						      <a href="${pageContext.request.contextPath}/notice/download.do?num=${dto.num}"><img src="${pageContext.request.contextPath}/resource/images/disk.gif" border="0" style="margin-top: 1px;"></a>
+						      <a href="${pageContext.request.contextPath}/notice/download.do?num=${dto.num}"><img src="${pageContext.request.contextPath}/resource/images/disk.gif" border="0" style="width: 15px; height: 15px;margin-top: 1px;"></a>
 						</c:if>
 			      </td>
 			  </tr>
@@ -153,14 +153,14 @@
 			      <td>${dto.listNum}</td>
 			      <td align="left" style="padding-left: 10px;">
 			           <a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
-			           <c:if test="${dto.gap<1}"><img src="${pageContext.request.contextPath}/resource/images/new.gif"></c:if>
+			           <c:if test="${dto.gap<1}"><img src="${pageContext.request.contextPath}/resource/images/new.gif" style="width: 15px; height: 10px;"></c:if>
 			      </td>
 			      <td>${dto.userName}</td>
 			      <td>${dto.created}</td>
 			      <td>${dto.hitCount}</td>
 			      <td>
 						<c:if test="${not empty dto.saveFilename}">
-						      <a href="${pageContext.request.contextPath}/notice/download.do?num=${dto.num}"><img src="${pageContext.request.contextPath}/resource/images/disk.gif" border="0" style="margin-top: 1px;"></a>
+						      <a href="${pageContext.request.contextPath}/notice/download.do?num=${dto.num}"><img src="${pageContext.request.contextPath}/resource/images/disk.gif" border="0" style="width: 15px; height: 15px;margin-top: 1px;"></a>
 						</c:if>
 			      </td>
 			  </tr>

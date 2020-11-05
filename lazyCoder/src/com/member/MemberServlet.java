@@ -77,7 +77,6 @@ public class MemberServlet extends HttpServlet{
 			String userId=req.getParameter("userId");
 			String userPwd=req.getParameter("userPwd");
 			MemberDTO dto=dao.readMember(userId);
-			
 			if(dto!=null) {
 				if(dto.getUserPwd().equals(userPwd)) {
 					//로그인 성공

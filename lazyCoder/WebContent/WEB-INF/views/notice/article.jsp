@@ -28,9 +28,7 @@ function deleteNotice(num) {
 </head>
 <body>
 
-<div class="header">
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-</div>
 	
 <div class="container">
     <div class="body-container" style="width: 700px;">

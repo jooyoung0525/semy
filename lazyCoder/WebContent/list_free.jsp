@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link
+	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 .container {
@@ -54,6 +57,7 @@ margin-left: 30px;
   cursor: pointer;
   font-size: 20px;
   color: #ddd;
+  
 }
 
 .sidenav__list {
@@ -65,6 +69,8 @@ margin-left: 30px;
 .sidenav__list-item {
   padding: 20px 20px 20px 40px;
   color: #ddd;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
 }
 
 .sidenav__list-item:hover {

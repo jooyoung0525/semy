@@ -222,6 +222,9 @@ img {
             </c:if>
             <c:if test="${not empty sessionScope.member}">
 	            <c:choose>
+	            <c:when test="${sessionScope.member.userId=='admin'}">
+	                <span style="color:#FF9933;">전지전능한</span>
+	            </c:when>
 	            <c:when test="${sessionScope.member.memberClass==1}">
 	                <span style="color:green;">뺀질이</span>
 	            </c:when>
