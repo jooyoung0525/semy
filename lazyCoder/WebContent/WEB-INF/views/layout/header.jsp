@@ -211,8 +211,13 @@ img {
 		<div class="header">
 			<div class="header-box1"></div>
 			<div class="header-box2">
+				<a href="${pageContext.request.contextPath}/">
 				<img alt="로고이미지"
-					src="${pageContext.request.contextPath}/resource/img/logo3.png">
+					src="${pageContext.request.contextPath}/resource/img/logo1.png" 
+					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/logo2.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/logo1.png'"
+					 style="cursor: pointer;">
+				</a> 
 			</div>
 			<div class="header-box3">
 			            <c:if test="${empty sessionScope.member}">
