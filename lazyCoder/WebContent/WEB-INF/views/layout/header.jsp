@@ -269,7 +269,7 @@ img {
 						<li><a href="${pageContext.request.contextPath}/bbs_know/list.do">좋은책추천해요</a></li>
 						<li><a href="${pageContext.request.contextPath}/bbs_lecture/list.do">유용한 강의 공유</a></li>
 					</ul></li>
-				<li><a class="drop" href="#">에러떠요!</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/error_board/list.do">에러떠요!</a>
 					<ul>
 						<li><a href="#">404/500 에러</a></li>
 						<li><a href="#">NullPointer 에러</a></li>
