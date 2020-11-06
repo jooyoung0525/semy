@@ -42,7 +42,7 @@ public class BoardServlet extends HttpServlet{
 		SessionInfo info = (SessionInfo)session.getAttribute("member");
 		if(info==null) {
 			String cp=req.getContextPath();
-			resp.sendRedirect(cp+"member/login.do");
+			resp.sendRedirect(cp+"/member/login.do");
 			return;
 		}
 		String uri=req.getRequestURI();
