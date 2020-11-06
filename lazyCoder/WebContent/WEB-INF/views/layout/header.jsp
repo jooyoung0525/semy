@@ -253,7 +253,7 @@ img {
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/bbs_free/list_free.do">자유게시판</a></li>
 						<li><a href="#">HOT게시판</a></li>
-						<li><a href="#">사진게시판</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_photo/list.do">사진게시판</a></li>
 					</ul></li>
 
 				<li><a class="drop" href="#">비밀의 소스코드</a>
@@ -266,8 +266,8 @@ img {
 					</ul></li>
 				<li><a class="drop" href="#">지식인</a>
 					<ul>
-						<li><a href="#">좋은책추천해요</a></li>
-						<li><a href="#">유용한 강의 공유</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_know/list.do">좋은책추천해요</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_lecture/list.do">유용한 강의 공유</a></li>
 					</ul></li>
 				<li><a class="drop" href="#">에러떠요!</a>
 					<ul>
@@ -278,7 +278,7 @@ img {
 				<li><a class="drop" href="${pageContext.request.contextPath}/notice/list.do">공지게시판</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
-						<li><a href="#">채용공고</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_recruit/list.do">채용공고</a></li>
 						<li><a href="#">출석체크!</a></li>
 					</ul></li>
 
