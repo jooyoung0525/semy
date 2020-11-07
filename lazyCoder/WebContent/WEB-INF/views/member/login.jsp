@@ -76,7 +76,9 @@ function sendLogin() {
 
 	    <div style="margin: 80px auto 70px; width:360px;">
 	    	<div style="text-align: center;">
-	        	<span style="font-weight: bold; font-size:27px; color: #424951;">회원 로그인</span>
+	    	<img alt="로그인 이미지" src="${pageContext.request.contextPath}/resource/img/login.png" style="width: 70px; height: 70px;">
+	    	<br>
+	        	<span style=" font-size:27px; color: #424951; font-family:'Jua', sans-serif; ">회원 로그인</span>
 	        </div>
 	        
 			<form name="loginForm" method="post" action="">
@@ -124,9 +126,7 @@ function sendLogin() {
 	</div>
 </div>
 
-<div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
-</div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>
