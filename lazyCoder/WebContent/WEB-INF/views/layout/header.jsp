@@ -228,13 +228,13 @@ img {
             <c:if test="${not empty sessionScope.member}">
 	            <c:choose>
 	            <c:when test="${sessionScope.member.userId=='admin'}">
-	                <span style="color:#FF9933;">전지전능한</span>
+	                <span style="color:#FF9933;">🤴 전지전능한</span>
 	            </c:when>
 	            <c:when test="${sessionScope.member.memberClass==1}">
-	                <span style="color:green;">뺀질이</span>
+	                <span style="color:green;">🙇‍♀️  뺀질이</span>
 	            </c:when>
 	            <c:when test="${sessionScope.member.memberClass==2}">
-	                <span style="color:blue;">코인물</span>
+	                <span style="color:blue;">👨‍💻  코인물</span>
 	            </c:when>
 	            </c:choose>
                 <span style="color:black;">${sessionScope.member.userName}</span>님

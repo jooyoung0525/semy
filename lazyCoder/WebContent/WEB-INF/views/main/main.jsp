@@ -217,6 +217,13 @@
 	border: 2px solid silver;
 }
 </style>
+<script type="text/javascript">
+function article(num){
+	var url="${articleUrl}&num="+num;
+	location.href=url;
+}
+
+</script>
 </head>
 <body>
 	<div class="container">
@@ -251,59 +258,79 @@
 		<div class="bbs">
 			<div class="menu">
 				<div class="menu-item">
+				<a href="${pageContext.request.contextPath}/bbs_free/list_free.do">
 					<img class="menu-items"
 						src="${pageContext.request.contextPath}/resource/img/idea.png"
-						onclick="">
+					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon1.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/idea.png'"
+					 style="cursor: pointer;">
 					<p>커뮤니티</p>
+					</a>
 				</div>
 				<div class="menu-item">
+				<a href="${pageContext.request.contextPath}/">
 					<img class="menu-items"
-						src="${pageContext.request.contextPath}/resource/img/coding.png">
-					<p>코드소스</p>
+						src="${pageContext.request.contextPath}/resource/img/coding.png"
+					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon2.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/coding.png'"
+					 style="cursor: pointer;">
+					<p>비밀의 소스코드</p>
+					</a>
 				</div>
 				<div class="menu-item">
-
+				<a href="${pageContext.request.contextPath}/bbs_know/list.do">
 					<img class="menu-items"
-						src="${pageContext.request.contextPath}/resource/img/book-stack.png">
+						src="${pageContext.request.contextPath}/resource/img/book-stack.png"
+					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon3.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/book-stack.png'"
+					 style="cursor: pointer;">
 					<p>지식인</p>
+				</a>
 				</div>
 				<div class="menu-item">
+				<a href="${pageContext.request.contextPath}/error_board/list.do">
 					<img class="menu-items"
-						src="${pageContext.request.contextPath}/resource/img/404-error.png">
+						src="${pageContext.request.contextPath}/resource/img/404-error.png"
+					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon4.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/404-error.png'"
+					 style="cursor: pointer;">
 					<p>에러떠요!</p>
+					</a>
 				</div>
 				<div class="menu-item">
+				<a href="${pageContext.request.contextPath}/notice/list.do">
 					<img class="menu-items"
-						src="${pageContext.request.contextPath}/resource/img/noticeboard.png">
+						src="${pageContext.request.contextPath}/resource/img/noticeboard.png"
+					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon5.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/noticeboard.png'"
+					 style="cursor: pointer;">
 					<p>공지게시판</p>
+					</a>
 				</div>
 			</div>
 		</div>
 		<p style="font-size: 20px;">| 뺀질코더들의 이야기</p>
-		<div class="bbs" id="bbs-img">
+		<p style="font-size: 18px;">👩‍💻 최근 채용 현황</p>
 		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+		<div class="bbs" id="bbs-img">
+		<c:forEach var="dto" items="${list}" varStatus="status">
+		<c:if test="${status.index==0}">
+			</c:if>
+		<div class="main-frame" onclick="article('${dto.num}');">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}');background-position: center;background-size:cover;background-position:center;">
 			</div>
 			
-			<p>글 제목</p>
+			<p>${dto.subject}</p>
+			<p>${dto.created}</p>
 		</div>
-		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-		</div>
-		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-		</div>
+		</c:forEach>
 		
 
 		</div>
-		<br><br><br><br><br><br>
+		
+		
+		<br><br><br><br><br><br><br><br><br>
+	<p style="font-size: 18px;">📷 사진 게시판</p>
 		<div class="bbs" id="bbs-img">
 		
 		<div class="main-frame">
