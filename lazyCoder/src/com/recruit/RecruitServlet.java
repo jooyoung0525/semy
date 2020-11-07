@@ -197,7 +197,7 @@ public class RecruitServlet extends MyUploadServlet{
 		RecruitDTO dto = new RecruitDTO();
 		if(req.getMethod().equalsIgnoreCase("GET")) {
 			//GET방식 접근인 경우
-			resp.sendRedirect(cp+"/photo/list.do");
+			resp.sendRedirect(cp+"/bbs_recruit/list.do");
 			return;
 		}
 		String page = req.getParameter("page");
@@ -206,7 +206,7 @@ public class RecruitServlet extends MyUploadServlet{
 			String imageFilename =req.getParameter("imageFilename");
 			
 			dto.setNum(Integer.parseInt(req.getParameter("num")));
-			dto.setSubject(req.getParameter("subeject"));
+			dto.setSubject(req.getParameter("subject"));
 			dto.setContent(req.getParameter("content"));
 			
 			Part p = req.getPart("selectFile");
@@ -228,7 +228,7 @@ public class RecruitServlet extends MyUploadServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp+"/photo/list.do?page="+page);
+		resp.sendRedirect(cp+"/bbs_recruit/list.do?page="+page);
 			
 	}
 	
@@ -243,12 +243,12 @@ public class RecruitServlet extends MyUploadServlet{
 			int num =Integer.parseInt(req.getParameter("num"));
 			RecruitDTO dto =dao.readRecruit(num);
 			if(dto==null) {
-				resp.sendRedirect(cp+"/photo/list.do?page="+page);
+				resp.sendRedirect(cp+"/bbs_recruit/list.do?page="+page);
 				return;
 			}
 			
 			if(! dto.getUserId().equals(info.getUserId()) && ! info.getUserId().equals("admin")){
-				resp.sendRedirect(cp+"/photo/list.do?page="+page);
+				resp.sendRedirect(cp+"/bbs_recruit/list.do?page="+page);
 				return;
 			}
 			
@@ -259,7 +259,7 @@ public class RecruitServlet extends MyUploadServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp+"/photo/list.do?page="+page);
+		resp.sendRedirect(cp+"/bbs_recruit/list.do?page="+page);
 	}
 	
 }

@@ -50,7 +50,7 @@ public class RecruitDAOImpl implements RecruitDAO {
 	      String sql;
 	      
 	      try {
-	         sql = " UPDATE photo SET subject = ?, content=? ,imageFilename=? WHERE num=? ";
+	         sql = " UPDATE work SET subject=?, content=? ,imageFilename=? WHERE num=? ";
 	         pstmt = conn.prepareStatement(sql);
 	         pstmt.setString(1,dto.getSubject());
 	         pstmt.setString(2,dto.getContent());
@@ -142,7 +142,7 @@ public class RecruitDAOImpl implements RecruitDAO {
          
          try {
             //이름 가져와야해서 조인해야함
-            sql="SELECT num, p.userId, userName, subject, imageFilename"
+            sql="SELECT num, p.userId, userName, subject, imageFilename, TO_CHAR(register_date,'YYYY-MM-DD') register_date  "
                   + "  FROM work p"
                   + "  JOIN member1 m ON p.userId=m.userId"
                   + "  ORDER BY num DESC"
@@ -160,6 +160,7 @@ public class RecruitDAOImpl implements RecruitDAO {
                dto.setUserName(rs.getString("userName"));
                dto.setSubject(rs.getString("subject"));
                dto.setImageFilename(rs.getString("imageFilename"));
+               dto.setCreated(rs.getString("register_date"));
                
                list.add(dto);
             }
