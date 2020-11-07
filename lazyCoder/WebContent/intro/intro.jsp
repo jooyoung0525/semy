@@ -25,9 +25,9 @@
 <jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 <br>
 <div class="intro">
-<img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro1.png" style="width: 100%; height: 600px;">
 <img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro2.png" style="width: 100%; height: 600px;">
 <img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro3.png" style="width: 100%; height: 600px;">
+<img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro5.png" style="width: 100%; height: 600px;">
 <img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro4.png" style="width: 100%; height: 600px;">
 </div>
 <br>
