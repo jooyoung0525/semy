@@ -77,8 +77,8 @@ function deleteBoard(num) {
 			    <td>
 			    <c:if test="${sessionScope.member.userId==dto.userId}">
 			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_recruit/update.do?num=${dto.num}&page=${page}';">수정</button>
-			    </c:if>
 			          <button type="button" class="btn" onclick="deleteBoard('${dto.num}');">삭제</button>
+			    </c:if>
 			    </td>
 			
 			    <td align="right">

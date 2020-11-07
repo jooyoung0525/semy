@@ -270,9 +270,9 @@ function article(num){
 				<div class="menu-item">
 				<a href="${pageContext.request.contextPath}/">
 					<img class="menu-items"
-						src="${pageContext.request.contextPath}/resource/img/coding.png"
+						src="${pageContext.request.contextPath}/resource/img/coding1.png"
 					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon2.png'"
-					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/coding.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/coding1.png'"
 					 style="cursor: pointer;">
 					<p>비밀의 소스코드</p>
 					</a>
@@ -290,9 +290,9 @@ function article(num){
 				<div class="menu-item">
 				<a href="${pageContext.request.contextPath}/error_board/list.do">
 					<img class="menu-items"
-						src="${pageContext.request.contextPath}/resource/img/404-error.png"
+						src="${pageContext.request.contextPath}/resource/img/error404.png"
 					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon4.png'"
-					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/404-error.png'"
+					 onmouseout="this.src='${pageContext.request.contextPath}/resource/img/error404.png'"
 					 style="cursor: pointer;">
 					<p>에러떠요!</p>
 					</a>
