@@ -19,14 +19,14 @@
 function deleteBoard(num) {
 	<c:if test="${sessionScope.member.userId==dto.userId || sessionScope.member.userId=='admin'}">
 	if(confirm("게시물을 삭제 하시겠습니까 ?")) {
-		var url="${pageContext.request.contextPath}/photo/delete.do?num="+num+"&page=${page}";
+		var url="${pageContext.request.contextPath}/bbs_recruit/delete.do?num="+num+"&page=${page}";
 		location.href=url;
 	}
 	</c:if>
 	<c:if test="${sessionScope.member.userId==dto.userId && sessionScope.member.userId!='admin'}">
 		alert("게시물을 삭제 하실수 없습니다.");
-	
 	</c:if>
+}
 	
 	
 
@@ -39,7 +39,7 @@ function deleteBoard(num) {
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 포토 갤러리 </h3>
+            <h3> 채용 공고 </h3>
         </div>
         
         <div>
@@ -60,7 +60,7 @@ function deleteBoard(num) {
 			</tr>
 			
 			<tr>
-				<td colspan="2" style="padding: 10px 5px;">
+				<td colspan="2" style="padding: 10px 5px;"align="center">
 					<img src="${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}" style="max-width: 100%; height: auto; resize: both;">
 				</td>
 			</tr>
@@ -91,9 +91,7 @@ function deleteBoard(num) {
     </div>
 </div>
 
-<div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
-</div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>

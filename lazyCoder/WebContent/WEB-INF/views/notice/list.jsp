@@ -23,7 +23,6 @@
 	margin: 0 auto;/* 중앙정렬 */
 	
 }
-
 .content{
 	overflow:hidden;
 	/* display: flex; */
@@ -54,11 +53,9 @@ margin-left: 30px;
   border-radius: 20px;
   
 }
-
 .sidenav.active {
   transform: translateX(0);
 }
-
 .sidenav__close-icon {
   visibility: visible;
   top: 8px;
@@ -68,20 +65,17 @@ margin-left: 30px;
   color: #ddd;
   
 }
-
 .sidenav__list {
   padding: 0;
   margin-top: 85px;
   list-style-type: none;
 }
-
 .sidenav__list-item {
   padding: 20px 20px 20px 40px;
   color: black;
   font-family: 'Jua', sans-serif;
   font-size: 20px;
 }
-
 .sidenav__list-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
@@ -149,8 +143,8 @@ margin-left: 30px;
 		      <i class="fas fa-times sidenav__brand-close"></i>
 		    </div>
 		    <ul class="sidenav__list">
-		      <li class="sidenav__list-item">공지사항</li>
-		      <li class="sidenav__list-item">채용공고</li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/notice/list.do"> 공지사항</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/bbs_recruit/list.do">채용공고</a></li>
 		      <li class="sidenav__list-item">출석체크</li>
 		    </ul>
 		  </aside>
