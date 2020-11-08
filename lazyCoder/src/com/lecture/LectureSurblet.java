@@ -180,11 +180,6 @@ import com.util.MyUtil;
 			String cp=req.getContextPath();
 			String rows=req.getParameter("rows");
 			
-			// admin만 글을 등록
-			if(! info.getUserId().equals("admin")) {
-				resp.sendRedirect(cp+"/bbs_lecture/list.do?rows="+rows);
-				return;
-			}
 			
 			req.setAttribute("mode", "created");
 			req.setAttribute("rows", rows);

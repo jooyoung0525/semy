@@ -3,6 +3,7 @@ package com.know;
 public class KnowBoardDTO {
 	private int num, listNum;
 	private String userId;
+	private String userName;
 	private String bookName;
 	private String bookInfo;
 	private String content;
@@ -70,6 +71,13 @@ public class KnowBoardDTO {
 	}
 	public void setRating(int rating) {
 		this.rating = rating;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

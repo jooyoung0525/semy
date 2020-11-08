@@ -250,7 +250,7 @@ $(function(){
 						    <a href="#">★</a>
 						    <a href="#">★</a>
 						</p>
-					 <input type="hidden" name="rating" id="rating" value="0">
+					 <input type="hidden" name="rating" id="rating" value="3">
 					 </td>
                   </tr>
 

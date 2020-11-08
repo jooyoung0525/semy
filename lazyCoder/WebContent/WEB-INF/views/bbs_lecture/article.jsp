@@ -39,7 +39,7 @@ function deleteBoard(num) {
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
+            <h3><span style="font-family: Webdings">2</span> 강의공유 게시판 </h3>
         </div>
         
         <div>
@@ -64,6 +64,8 @@ function deleteBoard(num) {
 			      ${dto.content}
 			   </td>
 			</tr>
+		
+			
 			
 			<tr height="35" style="border-bottom: 1px solid #cccccc;">
 			    <td colspan="2" align="left" style="padding-left: 5px;">
@@ -80,6 +82,16 @@ function deleteBoard(num) {
 					<c:if test="${not empty nextReadDto}">
 						<a href="${pageContext.request.contextPath}/bbs/article.do?${query}&num=${nextReadDto.num}">${nextReadDto.subject}</a>
 					</c:if>
+			    </td>
+			</tr>
+			
+			<tr height="35" style="border-bottom: 1px solid #cccccc;">
+			    <td colspan="2" align="left" style="padding-left: 5px;">
+			       첨&nbsp;&nbsp;부 :
+		           <c:if test="${not empty dto.saveFilename}"><!-- 첨부가 되있으면 -->
+		                   <a href="${pageContext.request.contextPath}/notice/download.do?num=${dto.num}">${dto.originalFilename}</a>
+		                    (<fmt:formatNumber value="${dto.fileSize/1024}" pattern="0.00"/> Kbyte)
+		           </c:if>
 			    </td>
 			</tr>
 			<tr height="45">

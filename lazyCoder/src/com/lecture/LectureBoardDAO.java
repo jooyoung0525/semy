@@ -19,16 +19,17 @@ private Connection conn=DBConn.getConnection();
 		
 		try {
 			sb.append("INSERT INTO lecture ");
-			sb.append(" (userId, subject, content, saveFilename, originalFilename, filesize)");
+			sb.append(" (num, userId, subject, content, saveFilename, originalFilename, filesize)");
 			sb.append(" VALUES (?, ?, ?, ?, ?, ?, ?)");
 			
 			pstmt=conn.prepareStatement(sb.toString());
-			pstmt.setString(1, dto.getUserId());
-			pstmt.setString(2, dto.getSubject());
-			pstmt.setString(3, dto.getContent());
-			pstmt.setString(4, dto.getSaveFilename());
-			pstmt.setString(5, dto.getOriginalFilename());
-			pstmt.setLong(6, dto.getFileSize());
+			 pstmt.setInt(1, dto.getNum());
+			pstmt.setString(2, dto.getUserId());
+			pstmt.setString(3, dto.getSubject());
+			pstmt.setString(4, dto.getContent());
+			pstmt.setString(5, dto.getSaveFilename());
+			pstmt.setString(6, dto.getOriginalFilename());
+			pstmt.setLong(7, dto.getFileSize());
 
 			result = pstmt.executeUpdate();
 			

@@ -47,15 +47,65 @@ public class KnowBoardImpl implements KnowBoardDAO  {
 	}
 	@Override
 	public int updateKnowBoard(KnowBoardDTO dto) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		int result=0;
+		PreparedStatement pstmt=null;
+		String sql;
+		try {
+			sql="UPDATE book SET bookname=?, content=?, bookinfo=?, rating=?, imageFilename=? WHERE num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getBookName());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getBookInfo());
+			pstmt.setInt(4, dto.getRating());
+			pstmt.setString(5, dto.getImageFilename());
+			pstmt.setInt(6, dto.getNum());
+			
+			
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+	         e.printStackTrace();
+	         throw e;
+	      } finally {
+	         if(pstmt!=null) {
+	            try {
+	               pstmt.close();
+	            } catch (SQLException e2) {
+	            }
+	         }
+	      }
+	      
+	      
+	      return result;
+	   }
 
 	@Override
 	public int deleteKnowBoard(int num) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		 int result=0;
+			PreparedStatement pstmt=null;
+			String sql;
+			
+			try {
+				sql="DELETE FROM book WHERE num =?";
+				
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				
+				result=pstmt.executeUpdate();
+			} catch (SQLException e) {
+		         e.printStackTrace();
+		         throw e;
+		      } finally {
+		         if(pstmt!=null) {
+		            try {
+		               pstmt.close();
+		            } catch (SQLException e2) {
+		            }
+		         }
+		      }
+		      
+		      
+		      return result;
+		   }
 
 	@Override
 	public int dataCount() {
@@ -162,9 +212,10 @@ public class KnowBoardImpl implements KnowBoardDAO  {
 	            dto.setNum(rs.getInt("num"));
 	            dto.setUserId(rs.getString("userId"));
 	            dto.setBookName(rs.getString("bookName"));
+	            dto.setUserName(rs.getString("userName"));
 	            dto.setBookInfo(rs.getString("bookInfo"));
 	            dto.setContent(rs.getString("content"));
-	            dto.setRating(Integer.parseInt("rating"));
+	            dto.setRating(rs.getInt("rating"));
 	            dto.setImageFilename(rs.getString("imageFilename"));
 	            dto.setRegister_date(rs.getString("register_date")); 
 

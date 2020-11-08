@@ -33,7 +33,7 @@
             return;
         }
 
-   		f.action="${pageContext.request.contextPath}/bbs/${mode}_ok.do";
+   		f.action="${pageContext.request.contextPath}/bbs_lecture/${mode}_ok.do";
 
         f.submit();
     }
@@ -74,6 +74,14 @@
 			        <textarea name="content" rows="12" class="boxTA" style="width: 95%;">${dto.content}</textarea>
 			      </td>
 			  </tr>
+			  
+			 <tr align="left" height="40" style="border-bottom: 1px solid #cccccc;">
+			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">첨&nbsp;&nbsp;&nbsp;&nbsp;부</td>
+			      <td style="padding-left:10px;"> 
+			           <input type="file" name="upload" class="boxTF" size="53" style="height: 25px;">
+			       </td>
+			  </tr> 
+			  
 			  </table>
 			
 			  <table style="width: 100%; border-spacing: 0px;">
@@ -85,7 +93,7 @@
 			      	</c:if>
 			        <button type="button" class="btn" onclick="sendOk();">${mode=='update'?'수정완료':'등록하기'}</button>
 			        <button type="reset" class="btn">다시입력</button>
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs/list.do';">${mode=='update'?'수정취소':'등록취소'}</button>
+			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/list.do?rows=${rows}';">${mode=='update'?'수정취소':'등록취소'}</button>
 			      </td>
 			    </tr>
 			  </table>

@@ -178,6 +178,7 @@ public class KnowBoardServlet extends MyUploadServlet {
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
+	      resp.sendRedirect(cp+"/bbs_know/list.do?page="+page);
 	}
 	
 	protected void updateForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -217,7 +218,7 @@ public class KnowBoardServlet extends MyUploadServlet {
 	      
 	      if(req.getMethod().equalsIgnoreCase("GET")) {
 	         // GET 방식으로 접근한 경우
-	         resp.sendRedirect(cp+"/photo/list.do");
+	         resp.sendRedirect(cp+"/bbs_know/list.do");
 	         return;
 	      }
 	      
@@ -227,9 +228,10 @@ public class KnowBoardServlet extends MyUploadServlet {
 	         String imageFilename=req.getParameter("imageFilename");
 	         
 	         dto.setNum(Integer.parseInt(req.getParameter("num")));
+	         dto.setBookInfo(req.getParameter("bookInfo"));
 	         dto.setBookName(req.getParameter("bookName"));
 	         dto.setContent(req.getParameter("content"));
-	         
+	         dto.setRating(Integer.parseInt(req.getParameter("rating")));
 	         
 	         Part p=req.getPart("selectFile");
 	         Map<String, String> map=doFileUpload(p, pathname);
@@ -267,13 +269,13 @@ public class KnowBoardServlet extends MyUploadServlet {
 	         int num = Integer.parseInt(req.getParameter("num"));
 	         KnowBoardDTO dto = dao.readKnowBoard(num);
 	         if (dto == null) {
-	            resp.sendRedirect(cp + "/photo/list.do?page=" + page);
+	            resp.sendRedirect(cp + "/bbs_know/list.do?page=" + page);
 	            return;
 	         }
 
 	         // 게시글을 작성한 사람이 아니거나 관리자가 아니면
 	         if (!dto.getUserId().equals(info.getUserId()) && !info.getUserId().equals("admin")) {
-	            resp.sendRedirect(cp + "/photo/list.do?page=" + page);
+	            resp.sendRedirect(cp + "/bbs_know/list.do?page=" + page);
 	            return;
 	         }
 

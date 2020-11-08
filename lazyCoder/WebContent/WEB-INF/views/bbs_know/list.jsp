@@ -101,7 +101,16 @@ function article(num) {
                <img src="${pageContext.request.contextPath}/uploads/photo/${dto.imageFilename}" style="width:200px; height:20px;" border="0">
                <span class="bookName">${dto.bookName}</span>
                 <span class="bookInfo">${dto.bookInfo}</span>
-                <span class="rating">${dto.rating}</span>
+                <span class="rating">
+               <c:choose>
+               	<c:when test="${dto.rating==1}"><p style="color:yellow;">★</p></c:when>
+               	<c:when test="${dto.rating==2}">★★</c:when>
+               	<c:when test="${dto.rating==3}">★★★</c:when>
+               	<c:when test="${dto.rating==4}"><p style="color:gold; font-size: 23px;">★★★★</p></c:when>
+                <c:when test="${dto.rating==5}">★★★★★</c:when>
+               </c:choose>
+               </span>
+                
             </div>
          </td>
       </c:forEach>

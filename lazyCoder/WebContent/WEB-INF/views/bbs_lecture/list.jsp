@@ -96,7 +96,7 @@
 			        </form>
 			      </td>
 			      <td align="right" width="100">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/created.do';">글올리기</button>
+			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/created.do?rows=${rows}';">글올리기</button>
 			      </td>
 			   </tr>
 			</table>

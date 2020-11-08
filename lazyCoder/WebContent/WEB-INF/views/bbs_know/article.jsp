@@ -19,7 +19,7 @@
 function deleteBoard(num) {
 <c:if test="${sessionScope.member.userId==dto.userId || sessionScope.member.userId=='admin'}">
    if(confirm("게시물을 삭제 하시겠습니까 ?")) {
-      var url="${pageContext.request.contextPath}/photo/delete.do?num="+num+"&page=${page}";
+      var url="${pageContext.request.contextPath}/bbs_know/delete.do?num="+num+"&page=${page}";
       location.href=url;
    }
 </c:if>
@@ -61,7 +61,7 @@ function deleteBoard(num) {
                 이름 : ${dto.userName}
              </td>
              <td width="50%" align="right" style="padding-right: 5px;">
-                 ${dto.created}
+                 ${dto.register_date}
              </td>
          </tr>
          
