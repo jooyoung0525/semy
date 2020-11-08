@@ -175,9 +175,6 @@ margin-left: 30px;
 					      <select name="rows" class="selectField" onchange="listBoard();">
 					         <option value="5"  ${rows==5 ? "selected='selected' ":""}>5개씩 출력</option>
 					         <option value="10" ${rows==10 ? "selected='selected' ":""}>10개씩 출력</option>
-					         <option value="20" ${rows==20 ? "selected='selected' ":""}>20개씩 출력</option>
-					         <option value="30" ${rows==30 ? "selected='selected' ":""}>30개씩 출력</option>
-					         <option value="50" ${rows==50 ? "selected='selected' ":""}>50개씩 출력</option>
 					      </select>
 					  </c:if>
 					  <input type="hidden" name="page" value="${page}">
@@ -187,7 +184,7 @@ margin-left: 30px;
 			   </tr>
 			</table>
 			
-			<table style="width: 100%; margin: 0px auto; border-spacing: 0px; border-collapse: collapse;">
+			<table style="width: 100%; margin: 0px auto; border-spacing: 0px; border-collapse: collapse;font-family:  'Jua', sans-serif;">
 			  <tr align="center" bgcolor="#eeeeee" height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
 			  	  <c:if test="${sessionScope.member.userId=='admin'}">
 				  	  <th width="40" style="color: #787878;">
@@ -203,7 +200,7 @@ margin-left: 30px;
 			  </tr>
 
 			 <c:forEach var="dto" items="${listNotice}">
-			  <tr align="center" bgcolor="#ffffff" height="35" style="border-bottom: 1px solid #cccccc;"> 
+			  <tr align="center"  height="35" style="border-bottom: 1px solid #cccccc;"> 
 			  	  <c:if test="${sessionScope.member.userId=='admin'}">
 			  	     <td>
 			  	  		<input type="checkbox" name="nums" value="${dto.num}" style="margin-top: 3px;" data-filename="${dto.saveFilename}">
@@ -227,7 +224,7 @@ margin-left: 30px;
 			</c:forEach> 
 
 			 <c:forEach var="dto" items="${list}">
-			  <tr align="center" bgcolor="#ffffff" height="35" style="border-bottom: 1px solid #cccccc;">
+			  <tr align="center"  height="35" style="border-bottom: 1px solid #cccccc;">
 			   	  <c:if test="${sessionScope.member.userId=='admin'}">
 			   	     <td>
 			   	  		<input type="checkbox" name="nums" value="${dto.num}" style="margin-top: 3px;" data-filename="${dto.saveFilename}">
