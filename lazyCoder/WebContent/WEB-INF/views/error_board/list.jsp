@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>spring</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
+<title>뺀질코딩-에러떠요!</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
@@ -15,6 +16,71 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
+<style type="text/css">
+.container {
+	width: 1080px;
+	margin: 0 auto;/* 중앙정렬 */
+	
+}
+.content{
+	overflow:hidden;
+	/* display: flex; */
+}
+.aside {
+	height: 600px;
+	width: 25%;
+	float :left;
+}
+.section {
+	float :right;
+	height: 600px;
+	width: 70%;
+	border-radius: 20px;
+}
+.body-container{
+margin-left: 30px;
+}
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: all .6s ease-in-out;
+/*   background-color: #394263; */
+  
+  border-radius: 20px;
+  
+}
+.sidenav.active {
+  transform: translateX(0);
+}
+.sidenav__close-icon {
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+  
+}
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: black;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+}
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+</style>
+
 <script type="text/javascript">
 	function searchList() {
 		var f=document.searchForm;
@@ -24,17 +90,40 @@
 </head>
 <body>
 
-<div class="header">
-    <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
+<div class="container">
+<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
+
+<div class="content">
+<div class="aside">
+		  <aside class="sidenav" style="background-image: url('${pageContext.request.contextPath}/resource/img/aside3.png');">
+		    <div class="sidenav__close-icon">
+		      <i class="fas fa-times sidenav__brand-close"></i>
+		    </div>
+		    <ul class="sidenav__list">
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/error_board/list.do"> 에러떠요!</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/error_board/list_404.do">└ 404/500 에러</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/error_board/list_Null.do">└ NullPointer 에러</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/error_board/list_Exception.do">└ Exception 에러</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/error_board/list_Etc.do">└ 기타 에러</a></li>
+		    </ul>
+		  </aside>
 </div>
-	
+<div class="section" style="background: url('${pageContext.request.contextPath}/resource/img/container1.png');">
 <div class="container">
     <div class="body-container" style="width: 700px;">
+    	<c:if test ="${category=='all'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 질문과 답변 </h3>
+            <h3><span style="font-family: Webdings">2</span> 에러떠요! </h3>
         </div>
-        
+       </c:if>
+       <c:if test ="${category!='all'}">
+        <div class="body-title">
+            <h3><span style="font-family: Webdings">2</span> ${category} 에러 </h3>
+        </div>
+       </c:if>
+       
         <div>
+        	<form name="errorForm" method="post">
 			<table style="width: 100%; margin-top: 20px; border-spacing: 0;">
 			   <tr height="35">
 			      <td align="left" width="50%">
@@ -68,8 +157,8 @@
 			      <td>${dto.hitCount}</td>
 			  </tr>
 			  </c:forEach>
-
 			</table>
+			 </form>
 			 
 			<table style="width: 100%; margin: 0px auto; border-spacing: 0px;">
 			   <tr height="35">
@@ -103,8 +192,10 @@
 			   </tr>
 			</table>
         </div>
-
     </div>
+</div>
+</div>
+</div>
 </div>
 
 <div class="footer">

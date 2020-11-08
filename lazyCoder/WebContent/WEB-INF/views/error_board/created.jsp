@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>spring</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
+<title>뺀질코딩</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
@@ -18,23 +19,19 @@
 <script type="text/javascript">
     function sendOk() {
         var f = document.boardForm;
-
     	var str = f.subject.value;
         if(!str) {
             alert("제목을 입력하세요. ");
             f.subject.focus();
             return;
         }
-
     	str = f.content.value;
         if(!str) {
             alert("내용을 입력하세요. ");
             f.content.focus();
             return;
         }
-
    		f.action="${pageContext.request.contextPath}/error_board/${mode}_ok.do";
-
         f.submit();
     }
 </script>
@@ -79,9 +76,10 @@
 			        <p style="margin-top: 1px; margin-bottom: 5px;">
 			            <select class="selectField" id="category" name="category" >
 			                <option value="">선 택</option>
-			                <option value="404/500" ${dto.category=="404/500" ? "selected='selected'" : ""}>404/500 Error</option>
-			                <option value="NullPointer" ${dto.category=="NullPointer" ? "selected='selected'" : ""}>NullPointer Error</option>
-			                <option value="Exception" ${dto.category=="Exception" ? "selected='selected'" : ""}>Exception Error</option>
+			                <option value="404/500" ${dto.category=="404/500" ? "selected='selected'" : ""}>404/500 에러</option>
+			                <option value="NullPointer" ${dto.category=="NullPointer" ? "selected='selected'" : ""}>NullPointer 에러</option>
+			                <option value="Exception" ${dto.category=="Exception" ? "selected='selected'" : ""}>Exception 에러</option>
+			                <option value="Etc." ${dto.category=="Etc" ? "selected='selected'" : ""}>기타</option>
 			            </select>
 			        </p>
 			      </td>

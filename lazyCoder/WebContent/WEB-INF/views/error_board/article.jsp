@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>spring</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
+<title>뺀질코딩</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
@@ -53,6 +54,12 @@ function deleteBoard(boardNum) {
 			    </td>
 			    <td width="50%" align="right" style="padding-right: 5px;">
 			        ${dto.created } | 조회 ${dto.hitCount}
+			    </td>
+			</tr>
+			
+			<tr height="35" style="border-bottom: 1px solid #cccccc;">
+			    <td width="50%" align="left" style="padding-left: 5px;">
+			       에러 : ${dto.category}
 			    </td>
 			</tr>
 			
