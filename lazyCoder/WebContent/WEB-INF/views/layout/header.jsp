@@ -261,13 +261,13 @@ img {
 						<li><a href="${pageContext.request.contextPath}/bbs_photo/list.do">사진게시판</a></li>
 					</ul></li>
 
-				<li><a class="drop" href="#">비밀의 소스코드</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/code/clist.do">비밀의 소스코드</a>
 					<ul>
-						<li><a href="#">C</a></li>
-						<li><a href="#">C++</a></li>
-						<li><a href="#">JAVA</a></li>
-						<li><a href="#">HTML/CSS</a></li>
-						<li><a href="#">JAVASCRIPT</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/clist.do">C</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/c++list.do">C++</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/javalist.do">JAVA</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/httpcsslist.do">HTML/CSS</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/javascriptlist.do">JAVASCRIPT</a></li>
 					</ul></li>
 				<li><a class="drop" href="#">지식인</a>
 					<ul>
