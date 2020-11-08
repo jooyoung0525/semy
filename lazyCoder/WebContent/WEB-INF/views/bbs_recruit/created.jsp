@@ -34,6 +34,14 @@
             return;
         }
         
+        str = f.deadline.value;
+    	str = str.trim();
+        if(!str || !isValidDateFormat(str)) {
+            alert("채용마감일를 입력하세요[YYYY-MM-DD]. ");
+            f.deadline.focus();
+            return;
+        }
+        
         var mode = "${mode}";
         if(mode=="created" && ! f.selectFile.value){
         	alert("이미지 파일을 선택하세요.");
@@ -95,6 +103,19 @@
 			          <textarea name="content" rows="12" class="boxTA" style="width: 95%;">${dto.content}</textarea>
 			      </td>
 			  </tr>
+			  
+			  <tr align="left" style="border-bottom: 1px solid #cccccc;">
+			  <td width="100" bgcolor="#eeeeee" style="text-align: center; padding-top:5px;" valign="top">채용마감일</td>
+			  			         <td style="padding-left:10px;"> 
+			  			        <p style="margin-top: 1px; margin-bottom: 5px;">
+			            <input type="text" name="deadline" value="${dto.deadline}" maxlength="10" 
+			                       class="boxTF" style="width: 95%;" placeholder="채용마감일">
+			        </p>
+			        <p class="help-block">채용마감일은 2000-01-01 형식으로 입력 합니다.</p>
+			  </td>
+			   </tr>
+			  
+			  
 			  
 			  <tr align="left" height="40" style="border-bottom: 1px solid #cccccc;">
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">이미지</td>

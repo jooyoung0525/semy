@@ -140,7 +140,7 @@ function article(num){
         
         <div>
 
-	<table style="width: 630px; margin: 20px auto 0px; border-spacing: 0px;">
+	<table style="width: 700px; margin: 20px auto 0px; border-spacing: 0px;">
 		<c:forEach var="dto" items="${list}" varStatus="status">
 			<c:if test="${status.index==0}">
 				<tr>
@@ -148,12 +148,24 @@ function article(num){
 			<c:if test="${status.index!=0 && status.index%3==0}">
 				<c:out value="</tr><tr>" escapeXml="false"/>
 			</c:if>
-			<td width="210" align="center">
+			<td width="230" align="center">
 				<div class="imgLayout" onclick="article('${dto.num}');" style="margin: 10px; ">
 				<div class="img_box"style="background: url('${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}');
-				background-position: center;background-size:cover;background-position:center;height: 130px; border-radius: 15px;">
+				background-position: center;background-size:cover;background-position:center;height: 110px; border-radius: 15px;">
 				</div>
-				<Br><p style="font-family: 'Jua', sans-serif; font-size: 15px;">${dto.subject}</p>
+				<Br><p style="font-family: 'Jua', sans-serif; font-size: 15px;">
+				 ${dto.subject} <p>
+				<p style="font-family: 'Jua', sans-serif; font-size: 15px;">
+				
+				<c:choose>
+				<c:when test="${dto.leftDate>=0}">
+				채용마감까지 D- ${dto.leftDate} 
+				</c:when>
+				<c:when test="${dto.leftDate<0}">
+				 끝난 채용 D+ ${-dto.leftDate} 
+				</c:when>
+				</c:choose>
+				</p>
 <%-- 					<img  src="${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}" width="180" height="180" border="0">
 					<Br><span class="subject">${dto.subject}</span> --%>
 				</div>

@@ -84,7 +84,7 @@ public class RecruitServlet extends MyUploadServlet{
 		List<RecruitDTO> list;
 		
 		list = dao.listRecruit(offset,rows);
-	
+		
 		
 		
 		
@@ -121,6 +121,9 @@ public class RecruitServlet extends MyUploadServlet{
 			dto.setUserId(info.getUserId());
 			dto.setSubject(req.getParameter("subject"));
 			dto.setContent(req.getParameter("content"));
+			String deadline1=req.getParameter("deadline").replaceAll("(\\.|\\-|\\/)", "-");
+			dto.setDeadline(deadline1);
+			
 			
 			String filename=null;
 			Part p = req.getPart("selectFile");

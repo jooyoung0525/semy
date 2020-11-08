@@ -6,8 +6,23 @@ public class RecruitDTO {
 	private String subject, content;
 	private String imageFilename;
 	private String created;
+	private String deadline;
+	private long leftDate;
 	
 	
+	
+	public long getLeftDate() {
+		return leftDate;
+	}
+	public void setLeftDate(long leftDate) {
+		this.leftDate = leftDate;
+	}
+	public String getDeadline() {
+		return deadline;
+	}
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
+	}
 	public int getNum() {
 		return num;
 	}

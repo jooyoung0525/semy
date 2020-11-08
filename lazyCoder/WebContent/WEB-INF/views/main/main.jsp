@@ -322,7 +322,19 @@ function article(num){
 			</div>
 			
 			<p>${dto.subject}</p>
-			<p>${dto.created}</p>
+			<p>
+			<c:choose>
+
+				<c:when test="${dto.leftDate>=10}">
+				D- ${dto.leftDate} 
+				</c:when>
+				<c:when test="${dto.leftDate<0}">
+				 D+ ${-dto.leftDate} 
+				</c:when>
+				<c:when test="${dto.leftDate<10 && dto.leftDate>0}">
+				 마감임박! D- ${dto.leftDate} 
+				</c:when>
+				</c:choose></p>
 		</div>
 		</c:forEach>
 		

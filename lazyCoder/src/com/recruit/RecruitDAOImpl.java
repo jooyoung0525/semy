@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -20,14 +23,14 @@ public class RecruitDAOImpl implements RecruitDAO {
       String sql;
       
       try {
-         sql = " INSERT INTO work(subject, content, userId , imageFilename, register_date, hitCount) "
-               + " VALUES(?, ?, ?, ?, SYSDATE ,0) ";
+         sql = " INSERT INTO work(subject, content, userId , imageFilename, register_date, hitCount, deadline) "
+               + " VALUES(?, ?, ?, ?, SYSDATE ,0, ?) ";
          pstmt = conn.prepareStatement(sql);
          pstmt.setString(1,dto.getSubject());
          pstmt.setString(2,dto.getContent());
          pstmt.setString(3,dto.getUserId());
          pstmt.setString(4,dto.getImageFilename());
-         
+         pstmt.setString(5,dto.getDeadline());
          result = pstmt.executeUpdate();
       } catch (SQLException e) {
          e.printStackTrace();
@@ -142,7 +145,7 @@ public class RecruitDAOImpl implements RecruitDAO {
          
          try {
             //이름 가져와야해서 조인해야함
-            sql="SELECT num, p.userId, userName, subject, imageFilename, TO_CHAR(register_date,'YYYY-MM-DD') register_date  "
+            sql="SELECT num, p.userId, userName, subject, imageFilename, TO_CHAR(register_date,'YYYY-MM-DD') register_date, deadline  "
                   + "  FROM work p"
                   + "  JOIN member1 m ON p.userId=m.userId"
                   + "  ORDER BY num DESC"
@@ -161,6 +164,17 @@ public class RecruitDAOImpl implements RecruitDAO {
                dto.setSubject(rs.getString("subject"));
                dto.setImageFilename(rs.getString("imageFilename"));
                dto.setCreated(rs.getString("register_date"));
+               dto.setDeadline(rs.getString("deadline"));
+               SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+               String now = sdf.format(new Date()); // 2020-11-08
+               try {
+              	 Date startDate = sdf.parse(now);
+              	 Date deadlineDate = sdf.parse(dto.getDeadline());
+              	 long left = (deadlineDate.getTime() - startDate.getTime()) / (24*60*60*1000);
+              	 dto.setLeftDate(left);
+  			} catch (ParseException e) {
+  				e.printStackTrace();
+  			}
                
                list.add(dto);
             }
@@ -194,7 +208,7 @@ public class RecruitDAOImpl implements RecruitDAO {
       String sql;
       
       try {
-          sql="SELECT num, p.userId, userName, subject, imageFilename, content, register_date "
+          sql="SELECT num, p.userId, userName, subject, imageFilename, content, register_date, deadline "
                      + "  FROM work p"
                      + "  JOIN member1 m ON p.userId=m.userId"
                      + "  WHERE num = ?";
@@ -211,6 +225,18 @@ public class RecruitDAOImpl implements RecruitDAO {
              dto.setContent(rs.getString("content"));
              dto.setImageFilename(rs.getString("imageFilename"));
              dto.setCreated(rs.getString("register_date"));
+             dto.setDeadline(rs.getString("deadline"));
+             
+             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+             String now = sdf.format(new Date()); // 2020-11-08
+             try {
+            	 Date startDate = sdf.parse(now);
+            	 Date deadlineDate = sdf.parse(dto.getDeadline());
+            	 long left = (deadlineDate.getTime() - startDate.getTime()) / (24*60*60*1000);
+            	 dto.setLeftDate(left);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
           }
          
          
