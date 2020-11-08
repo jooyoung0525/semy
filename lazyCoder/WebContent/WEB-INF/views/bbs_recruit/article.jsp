@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>spring</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
+<title>뺀질코딩-채용공고</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
@@ -39,7 +40,7 @@ function deleteBoard(num) {
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3> 채용 공고 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/recruit_logo.png" style="width: 50px; height: 37.5px;"> 채용 공고</h3>
         </div>
         
         <div>
@@ -61,7 +62,7 @@ function deleteBoard(num) {
 			
 			<tr>
 				<td colspan="2" style="padding: 10px 5px;"align="center">
-					<img src="${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}" style="max-width: 100%; height: auto; resize: both;">
+					<img src="${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}" style="width: 700px; height: auto; resize: both;">
 				</td>
 			</tr>
 			
@@ -71,7 +72,7 @@ function deleteBoard(num) {
 			  ${dto.content} 
 			   </td>
 			</tr>
-			
+		
 			
 			<tr height="45">
 			    <td>
