@@ -279,6 +279,7 @@ img {
 						<li><a href="#">404/500 에러</a></li>
 						<li><a href="#">NullPointer 에러</a></li>
 						<li><a href="#">Exception 예외</a></li>
+						<li><a href="#">기타</a></li>
 					</ul></li>
 				<li><a class="drop" href="${pageContext.request.contextPath}/notice/list.do">공지게시판</a>
 					<ul>
