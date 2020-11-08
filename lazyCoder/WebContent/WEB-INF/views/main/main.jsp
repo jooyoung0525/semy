@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
+<title>뺀질코딩</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
 	rel="stylesheet">
@@ -331,6 +332,31 @@ function article(num){
 		
 		<br><br><br><br><br><br><br><br><br>
 	<p style="font-size: 18px;">📷 사진 게시판</p>
+		<div class="bbs" id="bbs-img">
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			
+			<p>글 제목</p>
+		</div>
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			<p>글 제목</p>
+		</div>
+		
+		<div class="main-frame">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			<p>글 제목</p>
+		</div>
+		
+
+		</div>
+		<br><br><br><br><br><br><br><br><br>
+	<p style="font-size: 18px;">  📖    코더들의 책추천</p>
 		<div class="bbs" id="bbs-img">
 		
 		<div class="main-frame">

@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
+<title>뺀질코딩</title>
 <style type="text/css">
 .container {
 	width: 1080px;
@@ -26,9 +27,9 @@
 <br>
 <div class="intro">
 <img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro2.png" style="width: 100%; height: 600px;">
-<img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro3.png" style="width: 100%; height: 600px;">
-<img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro5.png" style="width: 100%; height: 600px;">
-<img alt="intro1" src="${pageContext.request.contextPath}/resource/img/intro4.png" style="width: 100%; height: 600px;">
+<img alt="intro2" src="${pageContext.request.contextPath}/resource/img/intro3.png" style="width: 100%; height: 600px;">
+<img alt="intro3" src="${pageContext.request.contextPath}/resource/img/intro5.png" style="width: 100%; height: 600px;">
+<img alt="intro4" src="${pageContext.request.contextPath}/resource/img/intro4.png" style="width: 100%; height: 600px;">
 </div>
 <br>
 <jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
