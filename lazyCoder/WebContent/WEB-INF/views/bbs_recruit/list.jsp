@@ -135,7 +135,7 @@ function article(num){
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 채용 공고 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/recruit_logo.png" style="width: 50px; height: 37.5px;"> 채용 공고 </h3>
         </div>
         
         <div>
@@ -149,9 +149,13 @@ function article(num){
 				<c:out value="</tr><tr>" escapeXml="false"/>
 			</c:if>
 			<td width="210" align="center">
-				<div class="imgLayout" onclick="article('${dto.num}');">
-					<img  src="${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}" width="180" height="180" border="0">
-					<Br><span class="subject">${dto.subject}</span>
+				<div class="imgLayout" onclick="article('${dto.num}');" style="margin: 10px; ">
+				<div class="img_box"style="background: url('${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}');
+				background-position: center;background-size:cover;background-position:center;height: 130px; border-radius: 15px;">
+				</div>
+				<Br><p style="font-family: 'Jua', sans-serif; font-size: 15px;">${dto.subject}</p>
+<%-- 					<img  src="${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}" width="180" height="180" border="0">
+					<Br><span class="subject">${dto.subject}</span> --%>
 				</div>
 			</td>
 		</c:forEach> 
