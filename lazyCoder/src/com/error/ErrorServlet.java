@@ -3,6 +3,8 @@ package com.error;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,15 +28,24 @@ public class ErrorServlet extends MyServlet {
 		String uri = req.getRequestURI();
 		HttpSession session = req.getSession();
 		SessionInfo info = (SessionInfo) session.getAttribute("member");
-		String cp = req.getContextPath();
+		
 		if (info == null) {
+			String cp = req.getContextPath();
 			resp.sendRedirect(cp + "/member/login.do");
 			return;
 		}
 
-		if (uri.indexOf("list.do") != -1) {
-			list(req, resp);
-		} else if (uri.indexOf("created.do") != -1) {
+		if (uri.indexOf("list.do") != -1) { //에러떠요!
+			list(req, resp,"all");
+		}else if (uri.indexOf("list_404.do") != -1) { // 404/500 에러
+			list(req, resp,"404/500");
+		}else if (uri.indexOf("list_Null.do") != -1) { // NullPointer 에러
+			list(req, resp,"NullPointer");
+		}else if (uri.indexOf("list_Exception.do") != -1) { // Exception 예외
+			list(req, resp,"Exception");
+		}else if (uri.indexOf("list_Etc.do") != -1) { // 기타 에러
+			list(req, resp,"Etc.");
+		}else if (uri.indexOf("created.do") != -1) {
 			createdForm(req, resp);
 		} else if (uri.indexOf("created_ok.do") != -1) {
 			createdSubmit(req, resp);
@@ -54,7 +65,7 @@ public class ErrorServlet extends MyServlet {
 
 	}
 
-	protected void list(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void list(HttpServletRequest req, HttpServletResponse resp, String category) throws ServletException, IOException {
 		// 게시글 리스트
 		ErrorDAO dao = new ErrorDAOImpl();
 		MyUtil util = new MyUtil();
@@ -79,12 +90,12 @@ public class ErrorServlet extends MyServlet {
 
 		int dataCount;
 		if (keyword.length() == 0) {
-			dataCount = dao.dataCount();
+			dataCount = dao.dataCount(category);
 		} else {
-			dataCount = dao.dataCount(condition, keyword);
+			dataCount = dao.dataCount(condition, keyword,category);
 		}
 
-		int rows = 10;
+		int rows = 9;
 		int total_page = util.pageCount(rows, dataCount);
 		if (current_page > total_page) {
 			current_page = total_page;
@@ -97,15 +108,28 @@ public class ErrorServlet extends MyServlet {
 
 		List<ErrorDTO> list;
 		if (keyword.length() == 0) {
-			list = dao.listBoard(offset, rows);
+			list = dao.listBoard(offset, rows ,category);
 		} else {
-			list = dao.listBoard(offset, rows, condition, keyword);
+			list = dao.listBoard(offset, rows, condition, keyword, category);
 		}
 
+		// 리스트번호 만들기, 글 등록 경과 시간
+		Date curDate= new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //new
 		int listNum, n = 0;
+		long gap;
+		
 		for (ErrorDTO dto : list) {
 			listNum = dataCount - (offset + n);
 			dto.setListNum(listNum);
+			try {
+				Date date=sdf.parse(dto.getCreated()); //문자열->Date로 변환
+				gap=(curDate.getTime() - date.getTime()) / (1000*60*60);
+				dto.setGap(gap); //현재 - 등록시간
+			} catch (Exception e) {
+			}
+			
+			dto.setCreated(dto.getCreated().substring(0, 10));
 			n++;
 		}
 
@@ -122,6 +146,7 @@ public class ErrorServlet extends MyServlet {
 		}
 		String paging = util.paging(current_page, total_page, listUrl);
 
+		
 		req.setAttribute("list", list);
 		req.setAttribute("dataCount", dataCount);
 		req.setAttribute("total_page", total_page);
@@ -130,11 +155,12 @@ public class ErrorServlet extends MyServlet {
 		req.setAttribute("articleUrl", articleUrl);
 		req.setAttribute("condition", condition);
 		req.setAttribute("keyword", keyword);
+		req.setAttribute("category", category);
 
 		forward(req, resp, "/WEB-INF/views/error_board/list.jsp");
 	}
 
-	
+
 	protected void createdForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 글쓰기폼
 		req.setAttribute("mode", "created");
@@ -147,7 +173,8 @@ public class ErrorServlet extends MyServlet {
 		HttpSession session = req.getSession();
 		SessionInfo info = (SessionInfo) session.getAttribute("member");
 		String cp = req.getContextPath();
-
+		String listname = req.getParameter("category").replaceAll("/", "");
+		listname+="list.do";
 		ErrorDAO dao = new ErrorDAOImpl();
 
 		try {
@@ -163,7 +190,7 @@ public class ErrorServlet extends MyServlet {
 			e.printStackTrace();
 		}
 
-		resp.sendRedirect(cp + "/error_board/list.do");
+		resp.sendRedirect(cp + "/error_board/"+listname);
 	}
 
 	protected void article(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -254,13 +281,14 @@ public class ErrorServlet extends MyServlet {
 			req.setAttribute("mode", "update");
 			req.setAttribute("condition", condition);
 			req.setAttribute("keyword", keyword);
+		
 
 			forward(req, resp, "/WEB-INF/views/error_board/created.jsp");
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/error_board/list.do?" + query);
+		resp.sendRedirect(cp + "/error_board/list.do?"+ query);
 
 	}
 
@@ -287,8 +315,8 @@ public class ErrorServlet extends MyServlet {
 			if (keyword.length() != 0) {
 				query += "&condition=" + condition + "&keyword=" + URLEncoder.encode(keyword, "utf-8");
 			}
-
-			ErrorDTO dto = new ErrorDTO();
+			int boardNum = Integer.parseInt(req.getParameter("boardNum"));
+			ErrorDTO dto = dao.readBoard(boardNum);
 			dto.setBoardNum(Integer.parseInt(req.getParameter("boardNum")));
 			dto.setSubject(req.getParameter("subject"));
 			dto.setContent(req.getParameter("content"));
@@ -350,6 +378,7 @@ public class ErrorServlet extends MyServlet {
 		ErrorDAO dao = new ErrorDAOImpl();
 
 		try {
+			
 			ErrorDTO dto = new ErrorDTO();
 			dto.setUserId(info.getUserId());
 			dto.setSubject(req.getParameter("subject"));

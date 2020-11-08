@@ -13,6 +13,9 @@ public class ErrorDTO {
 	private int parent;
 	private int hitCount;
 	private String created;
+	
+	private long gap; //¿·¿¡ new
+	
 	public int getBoardNum() {
 		return boardNum;
 	}
@@ -98,5 +101,10 @@ public class ErrorDTO {
 		this.category = category;
 	}
 	
-	
+	public long getGap() {
+		return gap;
+	}
+	public void setGap(long gap) {
+		this.gap = gap;
+	}
 }

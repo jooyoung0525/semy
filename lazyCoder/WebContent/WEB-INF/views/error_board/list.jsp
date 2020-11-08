@@ -116,7 +116,12 @@ margin-left: 30px;
             <h3><span style="font-family: Webdings">2</span> 에러떠요! </h3>
         </div>
        </c:if>
-       <c:if test ="${category!='all'}">
+       <c:if test ="${category=='Etc.'}">
+        <div class="body-title">
+            <h3><span style="font-family: Webdings">2</span> 기타 에러 </h3>
+        </div>
+       </c:if>
+       <c:if test ="${category!='all' && category!='Etc.'}">
         <div class="body-title">
             <h3><span style="font-family: Webdings">2</span> ${category} 에러 </h3>
         </div>
@@ -149,8 +154,15 @@ margin-left: 30px;
 			      <td>${dto.listNum}</td>
 			      <td align="left" style="padding-left: 10px;">
 			      	<c:forEach var="n" begin="1" end="${dto.depth}">&nbsp;&nbsp;</c:forEach>
-			      	${dto.depth!=0?"└&nbsp;":""}
+			      
+			      	${dto.depth!=0?"└&nbsp[ ":""}
+			      	${dto.depth!=0?dto.userName:""}
+			      	${dto.depth!=0?" ]&nbsp":""}
+			   
 					<a href="${articleUrl}&boardNum=${dto.boardNum}">${dto.subject}</a>
+			      	<c:if test="${dto.gap<=1 }">
+			     			<img src="${pageContext.request.contextPath}/resource/images/new.gif" style="width: 15px; height: 10px;">
+			     	</c:if>
 			      </td>
 			      <td>${dto.userName}</td>
 			      <td>${dto.created}</td>
