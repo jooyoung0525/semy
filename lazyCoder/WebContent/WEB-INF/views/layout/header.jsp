@@ -276,10 +276,10 @@ img {
 					</ul></li>
 				<li><a class="drop" href="${pageContext.request.contextPath}/error_board/list.do">에러떠요!</a>
 					<ul>
-						<li><a href="#">404/500 에러</a></li>
-						<li><a href="#">NullPointer 에러</a></li>
-						<li><a href="#">Exception 예외</a></li>
-						<li><a href="#">기타</a></li>
+						<li><a href="${pageContext.request.contextPath}/error_board/list_404.do">404/500 에러</a></li>
+						<li><a href="${pageContext.request.contextPath}/error_board/list_Null.do">NullPointer 에러</a></li>
+						<li><a href="${pageContext.request.contextPath}/error_board/list_Exception.do">Exception 예외</a></li>
+						<li><a href="${pageContext.request.contextPath}/error_board/list_Etc.do">기타</a></li>
 					</ul></li>
 				<li><a class="drop" href="${pageContext.request.contextPath}/notice/list.do">공지게시판</a>
 					<ul>
