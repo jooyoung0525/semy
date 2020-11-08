@@ -15,6 +15,20 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
+<style type="text/css">
+.container1{
+	width:1200px;
+	display: flex;
+	margin: 0 auto;
+
+}
+
+
+
+</style>
+
+
+
 <script type="text/javascript">
 function deleteBoard(num) {
 	
@@ -37,8 +51,8 @@ function deleteBoard(num) {
 
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
 	
-<div class="container">
-    <div class="body-container" style="width: 700px;">
+<div class="container1">
+    <div class="body-container" style="width: 1080px;">
         <div class="body-title">
             <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
         </div>
@@ -64,7 +78,7 @@ function deleteBoard(num) {
 			
 			<tr style="border-bottom: 1px solid #cccccc;">
 			  <td colspan="2" align="left" style="padding: 10px 5px;" valign="top" height="200">
-			      <c:out value="${dto.url}" escapeXml="false"/>
+			      <c:out value="<div style='width:1000px; overflow:auto;'>${dto.url}</div>" escapeXml="false"/>
 			   </td>
 			</tr>
 			
