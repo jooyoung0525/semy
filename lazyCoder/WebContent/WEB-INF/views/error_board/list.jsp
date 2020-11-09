@@ -184,7 +184,21 @@ margin-left: 30px;
 			     			<img src="${pageContext.request.contextPath}/resource/images/new.gif" style="width: 15px; height: 10px;">
 			     	</c:if>
 			      </td>
-			      <td>${dto.userName}</td>
+			     
+			      <td>
+			       <c:choose>
+			            <c:when test="${dto.memberClass == 0}">
+			                <span>🤴 </span>
+			            </c:when>
+			            <c:when test="${dto.memberClass==1}">
+			                <span>🙇‍♀️</span>
+			            </c:when>
+			            <c:when test="${dto.memberClass ==2}">
+			                <span>👨‍💻</span>
+			            </c:when>
+		           </c:choose>
+			      ${dto.userName}
+			      </td>
 			      <td>${dto.created}</td>
 			      <td>${dto.hitCount}</td>
 			  </tr>

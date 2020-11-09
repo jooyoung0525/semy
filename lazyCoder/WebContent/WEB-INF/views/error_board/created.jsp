@@ -152,7 +152,12 @@ margin-left: 30px;
 			  <tr align="left" height="40" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 			      <td style="padding-left:10px;"> 
+			       <c:if test="${mode=='reply'}">
 			        <input type="text" name="subject" maxlength="100" class="boxTF" style="width: 95%;" value="Re : ${dto.subject}">
+			        </c:if>
+			        <c:if test="${mode == 'created' || mode == 'update'}">
+			        <input type="text" name="subject" maxlength="100" class="boxTF" style="width: 95%;" value="${dto.subject}">
+			        </c:if>
 			      </td>
 			  </tr>
 			
