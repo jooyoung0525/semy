@@ -257,7 +257,7 @@ img {
 				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_free/list_free.do">커뮤니티</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/bbs_free/list_free.do">자유게시판</a></li>
-						<li><a href="#">HOT게시판</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_best/list.do">HOT게시판</a></li>
 						<li><a href="${pageContext.request.contextPath}/bbs_photo/list.do">사진게시판</a></li>
 					</ul></li>
 
