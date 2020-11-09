@@ -58,7 +58,7 @@ public class CodeBoardServlet extends HttpServlet {
 			list(req, resp,"c++");
 		} else if(uri.indexOf("javalist.do")!=-1) {
 			list(req, resp,"java");
-		} else if(uri.indexOf("httpcsslist.do")!=-1) {
+		} else if(uri.indexOf("html/csslist.do")!=-1) {
 			list(req, resp,"html/css");
 		} else if(uri.indexOf("list.do")!=-1) {
 			list(req, resp,"c");
@@ -179,6 +179,7 @@ public class CodeBoardServlet extends HttpServlet {
 		// ±Û¾²±â Æû
 		String path="/WEB-INF/views/code/created.jsp";
 		req.setAttribute("mode", "created");
+		req.setAttribute("category", req.getParameter("category"));
 		forward(req, resp, path);
 	}
 
@@ -187,7 +188,7 @@ public class CodeBoardServlet extends HttpServlet {
 		CodeBoardDAO dao=new CodeBoardDAOImpl();
 		CodeBoardDTO dto=new CodeBoardDTO();
 		String cp=req.getContextPath();
-		String listname=req.getParameter("category").replaceAll("/", "");
+		String listname=req.getParameter("category");
 		listname+="list.do";
 		
 		try {
@@ -199,6 +200,8 @@ public class CodeBoardServlet extends HttpServlet {
 			dto.setContent(req.getParameter("content"));
 			dto.setCategory(req.getParameter("category"));
 			dto.setUrl(req.getParameter("url"));
+			
+
 			
 			dao.insertBoard(dto);
 		} catch (Exception e) {
@@ -250,6 +253,7 @@ public class CodeBoardServlet extends HttpServlet {
 			req.setAttribute("nextReadDto", nextReadDto);
 			req.setAttribute("query", query);
 			req.setAttribute("page", page);
+			req.setAttribute("category", req.getParameter("category"));
 			
 			String path="/WEB-INF/views/code/article.jsp";
 			forward(req, resp, path);

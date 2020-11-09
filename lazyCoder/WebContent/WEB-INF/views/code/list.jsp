@@ -103,7 +103,7 @@ margin-left: 30px;
 		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/code/clist.do"> c언어 </a></li>
 		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/code/c++list.do"> c++언어 </a></li>
 		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/code/javalist.do"> JAVA </a></li>
-		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/code/httpcsslist.do"> Http/Css</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/code/html/csslist.do"> Http/Css</a></li>
 		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/code/javascriptlist.do"> Javascript</a></li>
 		      
 		      
@@ -143,7 +143,7 @@ margin-left: 30px;
 			  <tr align="center" height="35" style="border-bottom: 1px solid #cccccc;"> 
 			      <td>${dto.listNum}</td>
 			      <td align="left" style="padding-left: 10px;">
-			           <a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
+			           <a href="${articleUrl}&num=${dto.num}&category=${category}">${dto.subject}</a>
 			     		<c:if test="${dto.gap<=1 }">
 			     			<img src="${pageContext.request.contextPath}/resource/images/new.gif" style="width: 15px; height: 10px;">
 			     		</c:if>
@@ -164,10 +164,10 @@ margin-left: 30px;
 			   </tr>
 			</table>
 			
-			<table style="width: 100%; margin: 10px auto; border-spacing: 0px;">
+			<table style="width: 650px; margin: 10px; border-spacing: 0px;">
 			   <tr height="40">
 			      <td align="left" width="100">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/list.do';">새로고침</button>
+			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category}list.do';">새로고침</button>
 			      </td>
 			      <td align="center">
 			          <form name="searchForm" action="${pageContext.request.contextPath}/code/list.do" method="post">
@@ -183,7 +183,7 @@ margin-left: 30px;
 			        </form>
 			      </td>
 			      <td align="right" width="100">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/created.do';">글올리기</button>
+			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/created.do?category=${category }';">글올리기</button>
 			      </td>
 			   </tr>
 			</table>

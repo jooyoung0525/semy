@@ -54,7 +54,7 @@ function deleteBoard(num) {
 <div class="container1">
     <div class="body-container" style="width: 1080px;">
         <div class="body-title">
-            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/source_logo.png" style="width: 50px; height: 37.5px;"> 게시판 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/source_logo.png" style="width: 50px; height: 37.5px;">${category} 게시판 </h3>
         </div>
         
         <div>
