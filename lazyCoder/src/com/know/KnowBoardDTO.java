@@ -11,7 +11,15 @@ public class KnowBoardDTO {
 	private String imageFilename;
 	private int hitCount;
 	private int  rating;
+	private int memberClass;
+	
 
+	public int getMemberClass() {
+		return memberClass;
+	}
+	public void setMemberClass(int memberClass) {
+		this.memberClass = memberClass;
+	}
 	public int getNum() {
 		return num;
 	}

@@ -148,7 +148,7 @@ public class KnowBoardImpl implements KnowBoardDAO  {
 	    String sql;
 	    
 	    try {
-			sql="SELECT num, k.userId, m.userName, bookName, bookInfo, imageFilename, rating"
+			sql="SELECT num, k.userId, m.userName, bookName, bookInfo, imageFilename, rating, memberClass "
 					+" FROM book k"
 					+" JOIN member1 m ON k.userId= m.userId"
 					+ " ORDER BY num DESC "
@@ -167,7 +167,8 @@ public class KnowBoardImpl implements KnowBoardDAO  {
 		            dto.setBookInfo(rs.getString("bookInfo"));
 		            dto.setRating(rs.getInt("rating"));
 		            dto.setImageFilename(rs.getString("imageFilename"));
-
+		            dto.setUserName(rs.getString("userName"));
+		            dto.setMemberClass(rs.getInt("memberClass"));
 		            list.add(dto);
 		            }
 			

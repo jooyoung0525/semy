@@ -92,7 +92,7 @@ public class KnowBoardServlet extends MyUploadServlet {
 	      int dataCount=dao.dataCount();
 	
 
-	      int rows=9;
+	      int rows=6;
 	      int total_page=util.pageCount(rows, dataCount);
 	      if(current_page>total_page)
 	         current_page=total_page;
