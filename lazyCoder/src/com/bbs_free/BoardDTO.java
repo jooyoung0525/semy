@@ -10,7 +10,14 @@ private String content;
 private String created;
 private int hitCount;
 private long gap;
+private int memberClass;
 
+public int getMemberClass() {
+	return memberClass;
+}
+public void setMemberClass(int memberClass) {
+	this.memberClass = memberClass;
+}
 public long getGap() {
 	return gap;
 }

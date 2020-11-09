@@ -227,6 +227,10 @@ function article1(num){
 	var url="${articleUrl1}&num="+num;
 	location.href=url;
 }
+function article2(num){
+	var url="${articleUrl2}&num="+num;
+	location.href=url;
+}
 
 </script>
 
@@ -326,7 +330,7 @@ function article1(num){
 			</c:if>
 		<div class="main-frame" onclick="article('${dto.num}');">
 			<div class="img-box" style="background: url('${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}');background-position: center;background-size:cover;background-position:center;">
-			<div style="margin:0 auto; margin-top:5px; width:140px; background-color:navy; ; color: white; border-radius: 10px;">
+			<div style="margin:0 auto; margin-top:5px; width:140px; background-color:red; ; color: white; border-radius: 10px;">
 			<c:choose>
 				<c:when test="${dto.leftDate>=10}">
 				마감까지 D- ${dto.leftDate} 
@@ -354,29 +358,7 @@ function article1(num){
 		</div>
 		
 		
-		<br><br><br><br><br><br><br><br><br>
-	<p style="font-size: 18px;">📷 사진 게시판</p>
-		<div class="bbs" id="bbs-img">
-		
-		<div class="main-frame" >
-			<div class="img-box" style="background: url('');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-			</div>
-		<div class="main-frame" >
-			<div class="img-box" style="background: url('');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-			</div>
-		<div class="main-frame" >
-			<div class="img-box" style="background: url('');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-		</div>
-		
-
-		</div>
-		<br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br>
 	<p style="font-size: 18px;">  📖    코더들의 책추천</p>
 
 	<div class="bbs" id="bbs-img">
@@ -405,7 +387,32 @@ function article1(num){
 
 		</div>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+	<p style="font-size: 18px;">📷 사진 게시판</p>
+		<div class="bbs" id="bbs-img">
+		
+		<c:forEach var="dto" items="${list2}">
+		
+		<div class="main-frame" onclick="article2('${dto.num}');">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/uploads/photo/${dto.fileName}');background-position: center;background-size:cover;background-position:center;">
+			
+			</div>
+			
+			<p>${dto.subject} | 
+						     <c:choose>
+					 <c:when test="${dto.memberClass==0}"> <span>🤴 </span></c:when>
+					 <c:when test="${dto.memberClass==1}"><span>🙇‍♀️</span></c:when>
+					 <c:when test="${dto.memberClass==2}"><span>👨‍💻</span></c:when>
+				 </c:choose>
+				 ${dto.userName}
+			</p>
+
+		</div>
+		</c:forEach>  
+		
+
+		</div>
+		<br><br><br><br><br><br><br><br><br>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 

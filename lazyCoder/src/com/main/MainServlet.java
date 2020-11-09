@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bbs_photo.PhotoDAO;
+import com.bbs_photo.PhotoDAOImpl;
+import com.bbs_photo.PhotoDTO;
 import com.know.KnowBoardDAO;
 import com.know.KnowBoardDTO;
 import com.know.KnowBoardImpl;
@@ -34,6 +37,7 @@ public class MainServlet extends MyServlet {
 	protected void recruitList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RecruitDAO dao = new RecruitDAOImpl();
 		KnowBoardDAO dao1=new KnowBoardImpl();
+		PhotoDAO dao2 = new PhotoDAOImpl();
 		String cp = req.getContextPath();
 		
 //		String page = req.getParameter("page");
@@ -57,25 +61,29 @@ public class MainServlet extends MyServlet {
 		
 		List<RecruitDTO> list;
 		List<KnowBoardDTO> list1;
-		
+		List<PhotoDTO> list2;
 		list = dao.listRecruit(0,3);
 		list1 = dao1.listKnowBoard(0, 3);
+		list2= dao2.listPhoto(0, 3);
 		
 		
 		
 //		String listUrl = cp+"/bbs_recruit/list.do";
 		String articleUrl = cp+"/bbs_recruit/article.do?page=1";
 		String articleUrl1 = cp+"/bbs_know/article.do?page=1";
+		String articleUrl2 = cp+"/bbs_photo/article.do?page=1";
 //		String paging = util.paging(current_page, total_page, listUrl);
 		
 		req.setAttribute("list", list);
 		req.setAttribute("list1", list1);
+		req.setAttribute("list2", list2);
 //		req.setAttribute("dataCount", dataCount);
 //		req.setAttribute("total_page", total_page);
 //		req.setAttribute("page", current_page);
 //		req.setAttribute("paging", paging);
 		req.setAttribute("articleUrl", articleUrl);
 		req.setAttribute("articleUrl1", articleUrl1);
+		req.setAttribute("articleUrl2", articleUrl2);
 	
 	
 		

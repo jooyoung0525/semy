@@ -102,9 +102,9 @@ margin-left: 30px;
 		      <i class="fas fa-times sidenav__brand-close"></i>
 		    </div>
 		    <ul class="sidenav__list">
-		      <li class="sidenav__list-item">자유게시판</li>
-		      <li class="sidenav__list-item">HOT이슈</li>
-		      <li class="sidenav__list-item">사진게시판</li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/bbs_free/list_free.do"> 자유게시판</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/bbs_best/list.do">HOT게시판</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/bbs_photo/list.do">사진 게시판</a></li>
 		    </ul>
 		  </aside>
 </div>
@@ -112,7 +112,7 @@ margin-left: 30px;
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 자유 게시판 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/free_logo.png" style="width: 50px; height: 37.5px;">자유게시판 </h3>
         </div>
         
         <div>
@@ -127,7 +127,7 @@ margin-left: 30px;
 			   </tr>
 			</table>
 			
-			<table style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+			<table style="width: 100%; border-spacing: 0; border-collapse: collapse;font-family: 'Jua', sans-serif; ">
 			  <tr align="center" bgcolor="#eeeeee" height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <th width="60" style="color: #787878;">번호</th>
 			      <th style="color: #787878;">제목</th>
@@ -148,7 +148,13 @@ margin-left: 30px;
 			           	<img src="${pageContext.request.contextPath}/resource/images/new.gif" style="width: 15px; height: 10px;">
 			           </c:if>
 			      </td>
-			      <td>${dto.userName}</td>
+			      <td>
+			     <c:choose>
+					 <c:when test="${dto.memberClass==0}"> <span>🤴 </span></c:when>
+					 <c:when test="${dto.memberClass==1}"><span>🙇‍♀️</span></c:when>
+					 <c:when test="${dto.memberClass==2}"><span>👨‍💻</span></c:when>
+				 </c:choose>
+			      ${dto.userName}</td>
 			      <td>${dto.created}</td>
 			      <td>${dto.hitCount}</td>
 			  </tr>

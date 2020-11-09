@@ -46,7 +46,7 @@ public class BoardDAOImpl implements BoardDAO{
 		StringBuilder sb =new StringBuilder();
 		
 		try {
-			sb.append("SELECT num, userName, subject, hitCount, ");
+			sb.append("SELECT b.num, userName, subject, hitCount, ");
 			sb.append("       created ");
 			sb.append(" FROM best b ");
 			sb.append(" JOIN free f  ON b.userId = f.userId ");

@@ -160,7 +160,7 @@ margin-left: 30px;
         
         <div>
         	<form name="noticeListForm" method="post">
-			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px;">
+			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; font-family: 'Jua', sans-serif;">
 			   <tr height="35">
 			      <td align="left" width="50%">
 			      	  <c:if test="${sessionScope.member.userId=='admin'}">
@@ -212,7 +212,13 @@ margin-left: 30px;
 			      <td align="left" style="padding-left: 10px;">
 			           <a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
 			      </td>
-			      <td>${dto.userName}</td>
+			      <td>
+			     <c:choose>
+					 <c:when test="${dto.memberClass==0}"> <span>🤴 </span></c:when>
+					 <c:when test="${dto.memberClass==1}"><span>🙇‍♀️</span></c:when>
+					 <c:when test="${dto.memberClass==2}"><span>👨‍💻</span></c:when>
+				 </c:choose>
+			      ${dto.userName}</td>
 			      <td>${dto.created}</td>
 			      <td>${dto.hitCount}</td>
 			      <td>
@@ -235,7 +241,13 @@ margin-left: 30px;
 			           <a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
 			           <c:if test="${dto.gap<1}"><img src="${pageContext.request.contextPath}/resource/images/new.gif" style="width: 15px; height: 10px;"></c:if>
 			      </td>
-			      <td>${dto.userName}</td>
+			      <td>
+			     <c:choose>
+					 <c:when test="${dto.memberClass==0}"> <span>🤴 </span></c:when>
+					 <c:when test="${dto.memberClass==1}"><span>🙇‍♀️</span></c:when>
+					 <c:when test="${dto.memberClass==2}"><span>👨‍💻</span></c:when>
+				 </c:choose>
+			      ${dto.userName}</td>
 			      <td>${dto.created}</td>
 			      <td>${dto.hitCount}</td>
 			      <td>

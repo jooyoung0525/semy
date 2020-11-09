@@ -13,7 +13,15 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/jquery/css/smoothness/jquery-ui.min.css" type="text/css">
-
+<style type="text/css">
+.section {
+	
+	height: 600px;
+	width: 80%;
+	margin-left:10%;
+	border-radius: 20px;
+}
+</style>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
 <script type="text/javascript">
@@ -74,15 +82,15 @@
 
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
 	
-<div class="container">
-    <div class="body-container" style="width: 700px;">
+<div class="container" >
+    <div class="section" style="background: url('${pageContext.request.contextPath}/resource/img/container1.png');">
         <div class="body-title">
             <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/recruit_logo.png" style="width: 50px; height: 37.5px;"> 채용공고 등록</h3>
         </div>
         
         <div>
 			<form name="boardForm" method="post" enctype="multipart/form-data">
-			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;font-family: 'Jua', sans-serif;">
 			  <tr align="left" height="40" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 			      <td style="padding-left:10px;"> 

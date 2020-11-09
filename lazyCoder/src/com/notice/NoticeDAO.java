@@ -137,7 +137,7 @@ public class NoticeDAO {
 		
 		try {
 			sb.append("SELECT num, n.userId, userName, subject, saveFilename, ");
-			sb.append("       hitCount, created  ");
+			sb.append("       hitCount, created, memberClass  ");
 			sb.append(" FROM notice n JOIN member1 m ON n.userId=m.userId  ");
 			sb.append(" ORDER BY num DESC  ");
 			sb.append(" OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
@@ -158,6 +158,7 @@ public class NoticeDAO {
 				dto.setSaveFilename(rs.getString("saveFilename"));
 				dto.setHitCount(rs.getInt("hitCount"));
 				dto.setCreated(rs.getString("created"));
+				dto.setMemberClass(rs.getInt("memberClass"));
 				
 				list.add(dto);
 			}

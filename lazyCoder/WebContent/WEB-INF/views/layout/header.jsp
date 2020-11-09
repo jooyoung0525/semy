@@ -269,7 +269,7 @@ img {
 						<li><a href="${pageContext.request.contextPath}/code/httpcsslist.do">HTML/CSS</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/javascriptlist.do">JAVASCRIPT</a></li>
 					</ul></li>
-				<li><a class="drop" href="#">지식인</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_know/list.do">지식인</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/bbs_know/list.do">좋은책추천해요</a></li>
 						<li><a href="${pageContext.request.contextPath}/bbs_lecture/list.do">유용한 강의 공유</a></li>

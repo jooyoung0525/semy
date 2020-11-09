@@ -140,7 +140,7 @@ public class PhotoDAOImpl implements PhotoDAO {
 	      String sql;
 	      
 	      try {
-	         sql="SELECT num, p.userId, subject, fileName "
+	         sql="SELECT num, p.userId, subject, fileName,  userName, memberClass  "
 	               + " FROM photo p "
 	               + " JOIN member1 m ON p.userId = m.userId "
 	               + " ORDER BY num DESC "
@@ -157,7 +157,8 @@ public class PhotoDAOImpl implements PhotoDAO {
 	            dto.setUserId(rs.getString("userId"));
 	            dto.setSubject(rs.getString("subject"));
 	            dto.setfileName(rs.getString("fileName"));
-
+	            dto.setUserName(rs.getString("userName"));
+	            dto.setMemberClass(rs.getInt("memberClass"));
 	            list.add(dto);
 	            }
 	         } catch (SQLException e) {

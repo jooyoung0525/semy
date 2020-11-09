@@ -32,18 +32,18 @@ function deleteBoard(num) {
 </head>
 <body>
 
-<div class="header">
+
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-</div>
+
 	
 <div class="container">
     <div class="body-container" style="width: 700px;">
-        <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
+      <div class="body-title">
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/recruit_logo.png" style="width: 50px; height: 37.5px;"> 사진 게시판 </h3>
         </div>
         
         <div>
-			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;font-family: 'Jua', sans-serif;">
 			<tr height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
 			    <td colspan="2" align="center">
 				  ${dto.subject }
@@ -57,9 +57,9 @@ function deleteBoard(num) {
 			</tr>
 			
 				<tr>
-				<td colspan="2" style="padding: 10px 5px;">
+				<td colspan="2" style="padding: 10px 5px; text-align: center;">
 				<img src="${pageContext.request.contextPath}/uploads/photo/${dto.fileName}"
-				style="max-width: 100%; height: auto; resize: both;">
+				style="width:600px; height: auto; resize: both;">
 				</td>
 			</tr>
 			

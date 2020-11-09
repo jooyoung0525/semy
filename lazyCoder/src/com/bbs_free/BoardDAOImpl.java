@@ -182,8 +182,8 @@ public class BoardDAOImpl implements BoardDAO{
 		StringBuilder sb =new StringBuilder();
 		
 		try {
-			sb.append("SELECT num, userName, subject, hitCount, ");
-			sb.append("       created ");
+			sb.append("SELECT num, userName, subject, hitCount,  ");
+			sb.append("       created, memberClass  ");
 			sb.append(" FROM free f ");
 			sb.append(" JOIN member1 m ON f.userId = m.userId ");
 			sb.append(" ORDER BY num DESC");
@@ -201,6 +201,7 @@ public class BoardDAOImpl implements BoardDAO{
 				dto.setSubject(rs.getString("subject"));
 				dto.setHitCount(rs.getInt("hitCount"));
 				dto.setCreated(rs.getString("created"));
+				dto.setMemberClass(rs.getInt("memberClass"));
 				list.add(dto);
 			}
 			

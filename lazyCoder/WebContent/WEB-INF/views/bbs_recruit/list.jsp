@@ -151,7 +151,7 @@ function article(num){
 			<td width="230" align="center">
 				<div class="imgLayout" onclick="article('${dto.num}');" style="margin: 10px; ">
 				<div class="img_box"style="background: url('${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}');
-				background-position: center;background-size:cover;background-position:center;height: 110px; border-radius: 15px;">
+				background-position: center;background-size:cover;background-position:center;height: 110px; border-radius: 15px; border:2px solid silver;">
 				</div>
 				<Br><p style="font-family: 'Jua', sans-serif; font-size: 15px;">
 				 ${dto.subject} <p>

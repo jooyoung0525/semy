@@ -4,10 +4,32 @@ public class PhotoDTO {
  private int num;
  private String subject;
  private String userId;
+ private String userName;
  private String content;
  private String register_date;
  private int hitCount;
  private String fileName; 
+ private int memberClass;
+ 
+ 
+public int getMemberClass() {
+	return memberClass;
+}
+public void setMemberClass(int memberClass) {
+	this.memberClass = memberClass;
+}
+public String getUserName() {
+	return userName;
+}
+public void setUserName(String userName) {
+	this.userName = userName;
+}
+public String getFileName() {
+	return fileName;
+}
+public void setFileName(String fileName) {
+	this.fileName = fileName;
+}
 public int getNum() {
 	return num;
 }
