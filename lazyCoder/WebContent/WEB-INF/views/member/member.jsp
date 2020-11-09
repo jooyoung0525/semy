@@ -28,7 +28,7 @@
 function memberOk() {
 	var f = document.memberForm;
 	var str;
-
+	<c:if test="${mode=='member'}">
 	str = f.userId.value;
 	str = str.trim();
 	if(!str) {
@@ -42,6 +42,7 @@ function memberOk() {
 		return;
 	}
 	f.userId.value = str;
+	</c:if>
 
 	str = f.userPwd.value;
 	str = str.trim();
@@ -62,7 +63,7 @@ function memberOk() {
         f.userPwdCheck.focus();
         return;
 	}
-	
+	<c:if test="${mode=='member'}">
     str = f.userName.value;
 	str = str.trim();
     if(!str) {
@@ -71,6 +72,7 @@ function memberOk() {
         return;
     }
     f.userName.value = str;
+	</c:if>
 
     str = f.birth.value;
 	str = str.trim();
@@ -251,18 +253,7 @@ function userIdCheck() {
 			      </td>
 			  </tr>
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 			  <tr>
 			      <td width="100" valign="top" style="text-align: right; padding-top: 5px;">
 			            <label style="font-weight: 900;">생년월일</label>

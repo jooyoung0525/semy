@@ -8,7 +8,7 @@ public interface MemberDAO {
 	
 	public MemberDTO readMember(String userId);
 	
-	
+	public int updateMember(String userId,MemberDTO dto);
 	
 	
 	

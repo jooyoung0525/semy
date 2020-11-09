@@ -181,10 +181,52 @@ public class MemberServlet extends HttpServlet{
 	
 	protected void updateForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//회원 정보 수정 폼
+		req.setAttribute("mode", "update");
+		req.setAttribute("title", "회원 정보 수정");
+		String path="/WEB-INF/views/member/member.jsp";
+		forward(req, resp, path);
 	}
 	
 	protected void updateSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//회원 정보 수정 처리
+		
+		MemberDAO dao=new MemberDAOImpl();
+		
+		HttpSession session=req.getSession();
+		SessionInfo info=(SessionInfo)session.getAttribute("member");
+		
+		MemberDTO dto=dao.readMember(info.getUserId());
+		
+		String cp=req.getContextPath();
+		
+		try {
+			dto.setUserPwd(req.getParameter("userPwd"));
+			dto.setMemberClass(Integer.parseInt(req.getParameter("memberClass")));
+			
+			dto.setEmail(req.getParameter("email1")+"@"+req.getParameter("email2"));
+			dto.setTel(req.getParameter("tel1")+"-"+req.getParameter("tel2")+"-"+req.getParameter("tel3"));
+			String birth=req.getParameter("birth").replaceAll("(\\.|\\-|\\/)", "");
+			dto.setBirth(birth);
+			
+			dao.updateMember(info.getUserId(), dto);
+			
+			resp.sendRedirect(cp); //최상위에 있는 파일을 불러오므로 index.jsp가 실행된다
+			
+			return;
+			
+		}/*catch (SQLIntegrityConstraintViolationException e) {
+			req.setAttribute("message", "아이디 중복 등의 무결성 제약 조건 위반입니다.");
+		}catch (SQLDataException e) {
+			req.setAttribute("message", "날짜 형식등이 잘못되었습니다.");
+		}*/ catch (Exception e) {
+			req.setAttribute("message", "데이터 추가가 실패하였습니다");
+		}
+		req.setAttribute("mode", "update");
+		req.setAttribute("title", "회원 정보 수정");
+		String path="/WEB-INF/views/member/created.jsp";
+		forward(req, resp, path);
+		
+		
 	}
 	
 	protected void userIdCheck(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

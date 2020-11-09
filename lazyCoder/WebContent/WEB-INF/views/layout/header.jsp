@@ -241,7 +241,7 @@ img {
                     &nbsp;|&nbsp;
                     <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
                     &nbsp;|&nbsp;
-                    <a href="${pageContext.request.contextPath}">정보수정</a>
+                    <a href="${pageContext.request.contextPath}/member/update.do">정보수정</a>
             </c:if>
 			</div>
 		</div>
