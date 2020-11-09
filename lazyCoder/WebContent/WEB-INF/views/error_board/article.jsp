@@ -131,7 +131,6 @@ function deleteBoard(boardNum) {
 			<table style="width: 100%; margin: 0px auto; border-spacing: 0px; border-collapse: collapse;font-family:  'Jua', sans-serif;">
 			<tr height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
 			    <td colspan="2" align="center">
-				   <c:if test="${dto.depth!=0 }">[Re] </c:if>
 				   ${dto.subject}
 			    </td>
 			</tr>

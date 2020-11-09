@@ -54,7 +54,7 @@ function deleteBoard(num) {
 <div class="container1">
     <div class="body-container" style="width: 1080px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/source_logo.png" style="width: 50px; height: 37.5px;">${category} 게시판 </h3>
         </div>
         
         <div>
@@ -119,7 +119,7 @@ function deleteBoard(num) {
 			    </td>
 			
 			    <td align="right">
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/list.do?${query}';">리스트</button>
+			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category }list.do?${query}';">리스트</button>
 			    </td>
 			</tr>
 			</table>
