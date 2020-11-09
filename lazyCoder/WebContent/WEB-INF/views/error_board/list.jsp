@@ -6,13 +6,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resource/img/titlelogo.png">
 <title>뺀질코딩-에러떠요!</title>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<meta charset="UTF-8">
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Jua&family=Pathway+Gothic+One&family=Roboto+Condensed&display=swap"
+	rel="stylesheet">
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/jquery/css/smoothness/jquery-ui.min.css" type="text/css">
+
+
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
@@ -113,17 +120,17 @@ margin-left: 30px;
     <div class="body-container" style="width: 700px;">
     	<c:if test ="${category=='all'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 에러떠요! </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/error_logo.png" style="width: 50px; height: 37.5px;"> 에러떠요!</h3>
         </div>
        </c:if>
        <c:if test ="${category=='Etc.'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 기타 에러 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/error_logo.png" style="width: 50px; height: 37.5px;"> 기타 에러</h3>
         </div>
        </c:if>
        <c:if test ="${category!='all' && category!='Etc.'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> ${category} 에러 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/error_logo.png" style="width: 50px; height: 37.5px;"> ${category} 에러</h3>
         </div>
        </c:if>
        
@@ -140,7 +147,7 @@ margin-left: 30px;
 			   </tr>
 			</table>
 			
-			<table style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+			<table style="width: 100%; margin: 0px auto; border-spacing: 0px; border-collapse: collapse;font-family:  'Jua', sans-serif;">
 			  <tr align="center" bgcolor="#eeeeee" height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <th width="60" style="color: #787878;">번호</th>
 			      <th style="color: #787878;">제목</th>
@@ -155,9 +162,28 @@ margin-left: 30px;
 			      <td align="left" style="padding-left: 10px;">
 			      	<c:forEach var="n" begin="1" end="${dto.depth}">&nbsp;&nbsp;</c:forEach>
 			      
+			      <!-- 
 			      	${dto.depth!=0?"└&nbsp[ ":""}
 			      	${dto.depth!=0?dto.userName:""}
 			      	${dto.depth!=0?" ]&nbsp":""}
+			      	-->
+			      	
+			      	<c:if test="${dto.depth!=0}">
+			      	<span style="color:black;">└ </span>
+		            <c:choose>
+			            <c:when test="${dto.memberClass == 0}">
+			                <span style="color:#FF9933;"> 🤴 전지전능한</span>
+			            </c:when>
+			            <c:when test="${dto.memberClass==1}">
+			                <span style="color:green;">🙇‍♀️  뺀질이</span>
+			            </c:when>
+			            <c:when test="${dto.memberClass ==2}">
+			                <span style="color:blue;">👨‍💻  코인물</span>
+			            </c:when>
+		            </c:choose>
+		           
+	                <span style="color:black;">[  ${dto.userName}</span> ]
+           			</c:if>
 			   
 					<a href="${articleUrl}&boardNum=${dto.boardNum}">${dto.subject}</a>
 			      	<c:if test="${dto.gap<=1 }">

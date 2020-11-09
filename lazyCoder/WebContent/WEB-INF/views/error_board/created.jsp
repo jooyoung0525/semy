@@ -130,25 +130,25 @@ margin-left: 30px;
         
         <c:if test ="${mode == 'update'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span>게시글 수정</h3>
+            <h3 style="font-family: 'Jua', sans-serif; ">게시글 수정</h3>
         </div>
        </c:if>
        
        <c:if test ="${mode == 'created'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span>게시글 작성</h3>
+            <h3 style="font-family: 'Jua', sans-serif; ">게시글 작성</h3>
         </div>
        </c:if>
        
-       <c:if test ="${mode == 'reply'}">
+      <c:if test="${mode=='reply'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span>댓글 수정</h3>
+            <h3 style="font-family: 'Jua', sans-serif; ">댓글 등록</h3>
         </div>
        </c:if>
        
         <div>
 			<form name="boardForm" method="post">
-			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse; font-family:  'Jua', sans-serif;" >
 			  <tr align="left" height="40" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 			      <td style="padding-left:10px;"> 
@@ -167,8 +167,8 @@ margin-left: 30px;
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">에러 종류</td>
 			      <td style="padding-left:10px;"> 
 			          <p style="margin-top: 1px; margin-bottom: 5px;">
-			            <select class="selectField" id="category" name="category" >
-			                <option value="">선 택</option>
+			            <select class="selectField" id="category" name="category">
+			                <option value="">선  택</option>
 			                <option value="404/500" ${dto.category=="404/500" ? "selected='selected'" : ""}>404/500 에러</option>
 			                <option value="NullPointer" ${dto.category=="NullPointer" ? "selected='selected'" : ""}>NullPointer 에러</option>
 			                <option value="Exception" ${dto.category=="Exception" ? "selected='selected'" : ""}>Exception 에러</option>

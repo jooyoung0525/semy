@@ -105,7 +105,8 @@ public class ErrorServlet extends MyServlet {
 		if (offset < 0) {
 			offset = 0;
 		}
-
+		
+		
 		List<ErrorDTO> list;
 		if (keyword.length() == 0) {
 			list = dao.listBoard(offset, rows ,category);
@@ -156,6 +157,7 @@ public class ErrorServlet extends MyServlet {
 		req.setAttribute("condition", condition);
 		req.setAttribute("keyword", keyword);
 		req.setAttribute("category", category);
+		
 
 		forward(req, resp, "/WEB-INF/views/error_board/list.jsp");
 	}
@@ -163,7 +165,9 @@ public class ErrorServlet extends MyServlet {
 
 	protected void createdForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// ±Û¾²±âÆû
+		String category = req.getParameter("category");
 		req.setAttribute("mode", "created");
+		req.setAttribute("category", category);
 		forward(req, resp, "/WEB-INF/views/error_board/created.jsp");
 	}
 
@@ -253,7 +257,8 @@ public class ErrorServlet extends MyServlet {
 		
 		String page = req.getParameter("page");
 		String query = "page=" + page;
-
+		String category = req.getParameter("category");
+		
 		HttpSession session = req.getSession();
 		SessionInfo info = (SessionInfo) session.getAttribute("member");
 
@@ -281,7 +286,7 @@ public class ErrorServlet extends MyServlet {
 			req.setAttribute("mode", "update");
 			req.setAttribute("condition", condition);
 			req.setAttribute("keyword", keyword);
-		
+			req.setAttribute("category", category);
 
 			forward(req, resp, "/WEB-INF/views/error_board/created.jsp");
 			return;
@@ -335,15 +340,13 @@ public class ErrorServlet extends MyServlet {
 		ErrorDAO dao = new ErrorDAOImpl();
 		String cp = req.getContextPath();
 		String page = req.getParameter("page");
-		
-		HttpSession session = req.getSession();
-		SessionInfo info = (SessionInfo)session.getAttribute("member");
+		String category = req.getParameter("category");
 		
 		try {
 			int boardNum = Integer.parseInt(req.getParameter("boardNum"));
 			ErrorDTO dto = dao.readBoard(boardNum);
 			
-			if(dto==null || (info.getMemberClass() == 1 && !dto.getUserId().equals(info.getUserId()))) {
+			if(dto==null) {
 				resp.sendRedirect(cp + "/error_board/list.do?page=" + page);
 				return;
 			}
@@ -354,7 +357,8 @@ public class ErrorServlet extends MyServlet {
 			req.setAttribute("dto", dto);
 			req.setAttribute("page", page);
 			req.setAttribute("mode", "reply");
-
+			req.setAttribute("category", category);
+			
 			forward(req, resp, "/WEB-INF/views/error_board/created.jsp");
 			return;
 		} catch (Exception e) {

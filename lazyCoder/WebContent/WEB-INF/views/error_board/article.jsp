@@ -116,24 +116,19 @@ function deleteBoard(boardNum) {
 <div class="section" style="background: url('${pageContext.request.contextPath}/resource/img/container1.png');">
 <div class="container">
     <div class="body-container" style="width: 700px;">
-    	<c:if test ="${category=='all'}">
+       <c:if test ="${dto.category=='Etc.'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 에러떠요! </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/error_logo.png" style="width: 50px; height: 37.5px;"> 기타 에러</h3>
         </div>
        </c:if>
-       <c:if test ="${category=='Etc.'}">
+       <c:if test ="${dto.category!='Etc.'}">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 기타 에러 </h3>
-        </div>
-       </c:if>
-       <c:if test ="${category!='all' && category!='Etc.'}">
-        <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> ${category} 에러 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/error_logo.png" style="width: 50px; height: 37.5px;"> ${dto.category} 에러</h3>
         </div>
        </c:if>
         
         <div>
-			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			<table style="width: 100%; margin: 0px auto; border-spacing: 0px; border-collapse: collapse;font-family:  'Jua', sans-serif;">
 			<tr height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
 			    <td colspan="2" align="center">
 				   <c:if test="${dto.depth!=0 }">[Re] </c:if>
@@ -181,17 +176,11 @@ function deleteBoard(boardNum) {
 			</tr>
 			</table>
 			
-			<table style="width: 100%; margin: 0px auto 20px; border-spacing: 0px;">
+			<table style="width: 100%; margin: 0px auto; border-spacing: 0px; border-collapse: collapse;font-family:  'Jua', sans-serif;">
 			<tr height="45">
 			    <td width="300" align="left">
-			    	  <c:if test ="${sessionScope.member.userId != dto.userId && sessionScope.member.memberClass == 1}">
-			    	     <button type="button" class="btn" disabled="disabled">답변</button>
-			          </c:if>
-			          
-			          <c:if test ="${sessionScope.member.userId == dto.userId || sessionScope.member.memberClass != 1}">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/error_board/reply.do?boardNum=${dto.boardNum}&page=${page}';">답변</button>
-			          </c:if>
-			          
+			    
+			    	  <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/error_board/reply.do?boardNum=${dto.boardNum}&page=${page}';">답변</button>
 			          <c:if test="${sessionScope.member.userId == dto.userId}">
 			              <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/error_board/update.do?boardNum=${dto.boardNum}&${query}';">수정</button>
 			          </c:if>

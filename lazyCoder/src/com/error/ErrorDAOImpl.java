@@ -396,7 +396,8 @@ public class ErrorDAOImpl implements ErrorDAO {
 				dto.setHitCount(rs.getInt("hitCount"));
 				dto.setCreated(rs.getString("created"));
 				dto.setCategory(rs.getString("category"));
-
+				dto.setMemberClass(rs.getInt("memberClass")); //요기
+				
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -454,6 +455,7 @@ public class ErrorDAOImpl implements ErrorDAO {
 	    			pstmt.setString(2, keyword);
 	    			pstmt.setInt(3, offset);
 	    			pstmt.setInt(4, rows);
+	    			
 	            } else {
 	    			pstmt.setString(1, keyword);
 	    			pstmt.setInt(2, offset);
@@ -505,7 +507,7 @@ public class ErrorDAOImpl implements ErrorDAO {
 				dto.setHitCount(rs.getInt("hitCount"));
 				dto.setCreated(rs.getString("created"));
 				dto.setCategory(rs.getString("category"));
-
+				dto.setMemberClass(rs.getInt("memberClass")); //요기
 				list.add(dto);
 			}
 
