@@ -164,7 +164,7 @@ margin-left: 30px;
 			      
 			      	<c:if test="${dto.depth!=0}">
 			      	<span style="color:black;"> └ </span>
-		            <c:choose>
+			      	<c:choose>
 			            <c:when test="${dto.memberClass == 0}">
 			                <span style="color:#FF9933;"> 🤴 전지전능한</span>
 			            </c:when>
@@ -175,8 +175,8 @@ margin-left: 30px;
 			                <span style="color:blue;">👨‍💻  코인물</span>
 			            </c:when>
 		            </c:choose>
-		           
-	                <span style="color:black;">[${dto.userName}</span>]
+			      	<!-- 	                
+			      	<span style="color:black;">[${dto.userName}</span>] -->
            			</c:if>
 			   
 					<a href="${articleUrl}&boardNum=${dto.boardNum}">${dto.subject}</a>
