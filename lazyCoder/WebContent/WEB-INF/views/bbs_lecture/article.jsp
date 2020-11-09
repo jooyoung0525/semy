@@ -20,7 +20,7 @@ function deleteBoard(num) {
 	<c:if test="${sessionScope.member.userId=='admin' || sessionScope.member.userId==dto.userId}"> 
 	<!-- 로그인 아이디와 게시글 아이디가 동일하면. 조건 충족하지 않으면 소스보기에서 안 보임. 실무에서는 아이디가 아니라 권한(rol)으로 함. -->
 	   if(confirm("게시물을 삭제 하시겠습니까 ?")) {
-	      var url="${pageContext.request.contextPath}/bbs/delete.do";
+	      var url="${pageContext.request.contextPath}/bbs_lecture/delete.do";
 	      location.href=url+"?${query}&num=${dto.num}";
 	   }
 	</c:if>
@@ -55,7 +55,7 @@ function deleteBoard(num) {
 			       이름 : ${dto.userName}
 			    </td>
 			    <td width="50%" align="right" style="padding-right: 5px;">
-			        ${dto.created } | 조회 ${dto.hitCount}
+			        ${dto.register_date } | 조회 ${dto.hitCount}
 			    </td>
 			</tr>
 			
@@ -85,25 +85,16 @@ function deleteBoard(num) {
 			    </td>
 			</tr>
 			
-			<tr height="35" style="border-bottom: 1px solid #cccccc;">
-			    <td colspan="2" align="left" style="padding-left: 5px;">
-			       첨&nbsp;&nbsp;부 :
-		           <c:if test="${not empty dto.saveFilename}"><!-- 첨부가 되있으면 -->
-		                   <a href="${pageContext.request.contextPath}/notice/download.do?num=${dto.num}">${dto.originalFilename}</a>
-		                    (<fmt:formatNumber value="${dto.fileSize/1024}" pattern="0.00"/> Kbyte)
-		           </c:if>
-			    </td>
-			</tr>
 			<tr height="45">
 			    <td>
 			          <c:if test="${sessionScope.member.userId==dto.userId}">
-			              <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs/update.do?page=${page}&num=${dto.num}';">수정</button>
+			              <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/update.do?page=${page}&num=${dto.num}';">수정</button>
 			       	  </c:if>
 			          <button type="button" class="btn" onclick="deleteBoard('${dto.num}');">삭제</button>
 			    </td>
 			
 			    <td align="right">
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs/list.do?${query}';">리스트</button>
+			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/list.do?${query}';">리스트</button>
 			    </td>
 			</tr>
 			</table>

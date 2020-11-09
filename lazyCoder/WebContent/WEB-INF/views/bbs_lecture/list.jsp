@@ -64,7 +64,7 @@
 				    	</c:if>
 			     </td>
 			       <td>${dto.userName }</td>
-     			 	<td>${dto.created }</td>
+     			 	<td>${dto.register_date }</td>
       				<td>${dto.hitCount}</td>
 			  </tr>
 			</c:forEach>
@@ -89,7 +89,7 @@
 				                  <option value="subject" ${condition=="subject"?"selected='selected' ":"" }>제목</option>
 				                  <option value="userName" ${condition=="userName"?"selected='selected' ":""}>작성자</option>
 				                  <option value="content" ${condition=="content"?"selected='selected' ":""}>내용</option>
-				                  <option value="created" ${condition=="created"?"selected='selected' ":""}>등록일</option>
+				                  <option value="register_date" ${condition=="register_date"?"selected='selected' ":""}>등록일</option>
 				            </select>
 			           <input type="text" name="keyword" class="boxTF" value="${keyword}">
             			<button type="button" onclick="searchList()">검색</button>

@@ -32,6 +32,13 @@
             f.content.focus();
             return;
         }
+        
+    	str = f.url.value;
+        if(!str) {
+            alert("url을 입력하세요. ");
+            f.url.focus();
+            return;
+        }
 
    		f.action="${pageContext.request.contextPath}/bbs_lecture/${mode}_ok.do";
 
@@ -75,18 +82,20 @@
 			      </td>
 			  </tr>
 			  
-			 <tr align="left" height="40" style="border-bottom: 1px solid #cccccc;">
-			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">첨&nbsp;&nbsp;&nbsp;&nbsp;부</td>
+			 <tr align="left" height="40" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
+			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">U&nbsp;&nbsp;R&nbsp;&nbsp;L</td>
 			      <td style="padding-left:10px;"> 
-			           <input type="file" name="upload" class="boxTF" size="53" style="height: 25px;">
-			       </td>
-			  </tr> 
+			        <input type="text" name="url" maxlength="100" class="boxTF" style="width: 95%;" value="${dto.url}">
+			      </td>
+			  </tr>
+			  
 			  
 			  </table>
 			
 			  <table style="width: 100%; border-spacing: 0px;">
 			     <tr height="45"> 
 			      <td align="center" >
+			      	<input type="hidden" name="rows" value="${rows}">
 			      	<c:if test="${mode=='update'}">
 			      		<input type="hidden" name="num" value="${dto.num}">
 			      		<input type="hidden" name="page" value="${page}">

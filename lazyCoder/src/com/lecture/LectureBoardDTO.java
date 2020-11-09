@@ -2,109 +2,76 @@ package com.lecture;
 
 public class LectureBoardDTO {
 	private int num, listNum;
-    private String userName, userId, subject, content, created;
-    private int hitCount;
-	
-	private String saveFilename;
-	private String originalFilename;
-	private long fileSize;
+	private String userId, userName;
+	private String subject;
+	private String content;
+	private String url;
+	private String register_date;
+	private int hitCount;
 	
 	private long gap;
-
+	
+	
 	public int getNum() {
 		return num;
 	}
-
 	public void setNum(int num) {
 		this.num = num;
 	}
-
 	public int getListNum() {
 		return listNum;
 	}
-
 	public void setListNum(int listNum) {
 		this.listNum = listNum;
 	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getUserId() {
 		return userId;
 	}
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public String getSubject() {
 		return subject;
 	}
-
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getCreated() {
-		return created;
+	public String getUrl() {
+		return url;
 	}
-
-	public void setCreated(String created) {
-		this.created = created;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-
+	public String getRegister_date() {
+		return register_date;
+	}
+	public void setRegister_date(String register_date) {
+		this.register_date = register_date;
+	}
 	public int getHitCount() {
 		return hitCount;
 	}
-
 	public void setHitCount(int hitCount) {
 		this.hitCount = hitCount;
 	}
-
-	public String getSaveFilename() {
-		return saveFilename;
-	}
-
-	public void setSaveFilename(String saveFilename) {
-		this.saveFilename = saveFilename;
-	}
-
-	public String getOriginalFilename() {
-		return originalFilename;
-	}
-
-	public void setOriginalFilename(String originalFilename) {
-		this.originalFilename = originalFilename;
-	}
-
-	public long getFileSize() {
-		return fileSize;
-	}
-
-	public void setFileSize(long fileSize) {
-		this.fileSize = fileSize;
-	}
-
 	public long getGap() {
 		return gap;
 	}
-
 	public void setGap(long gap) {
 		this.gap = gap;
 	}
+	
 	
 }
