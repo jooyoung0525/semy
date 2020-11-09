@@ -126,7 +126,7 @@ function article(num){
 		    </div>
 		    <ul class="sidenav__list">
 		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/bbs_know/list.do">책추천 게시판</a></li>
-		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/">유용한 강의공유</a></li>
+		      <li class="sidenav__list-item"><a href="${pageContext.request.contextPath}/bbs_lecture/list.do">유용한 강의공유</a></li>
 		    </ul>
 		  </aside>
 </div>

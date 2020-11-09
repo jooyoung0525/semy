@@ -8,6 +8,94 @@
 <head>
 <meta charset="UTF-8">
 <title>spring</title>
+<style type="text/css">
+.container {
+	width: 1080px;
+	margin: 0 auto;/* 중앙정렬 */
+	
+}
+
+.content{
+	overflow:hidden;
+	/* display: flex; */
+}
+.aside {
+	height: 600px;
+	width: 25%;
+	float :left;
+}
+.section {
+	margin: 30px auto;
+	height: 600px;
+	width: 70%;
+	border-radius: 20px;
+}
+.body-container{
+margin-left: 30px;
+}
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: all .6s ease-in-out;
+/*   background-color: #394263; */
+  
+  border-radius: 20px;
+  
+}
+
+.sidenav.active {
+  transform: translateX(0);
+}
+
+.sidenav__close-icon {
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+  
+}
+
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: black;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+}
+
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.list-photo{
+	width:100%;
+	display: flex;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.list-items{
+	width: 180px;
+	height: 150px;
+	margin-left:36px;
+	background: yellow;
+	border-radius: 20px;
+}
+</style>
+
+
+
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
@@ -23,13 +111,6 @@
         if(!str) {
             alert("제목을 입력하세요. ");
             f.subject.focus();
-            return;
-        }
-
-    	str = f.content.value;
-        if(!str) {
-            alert("내용을 입력하세요. ");
-            f.content.focus();
             return;
         }
         
@@ -48,14 +129,14 @@
 </head>
 <body>
 
-<div class="header">
+
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-</div>
-	
+
+<div class="section" style="background: url('${pageContext.request.contextPath}/resource/img/container1.png');">	
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
+            <h3><span style="font-family: Webdings">2</span> 강의공유 게시판 </h3>
         </div>
         
         <div>
@@ -110,6 +191,7 @@
         </div>
 
     </div>
+</div>
 </div>
 
 <div class="footer">

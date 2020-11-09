@@ -8,6 +8,94 @@
 <head>
 <meta charset="UTF-8">
 <title>spring</title>
+
+<style type="text/css">
+.container {
+	width: 1080px;
+	margin: 0 auto;/* 중앙정렬 */
+	
+}
+
+.content{
+	overflow:hidden;
+	/* display: flex; */
+}
+.aside {
+	height: 600px;
+	width: 25%;
+	float :left;
+}
+.section {
+	margin: 30px auto;
+	height: 600px;
+	width: 70%;
+	border-radius: 20px;
+}
+.body-container{
+margin-left: 30px;
+}
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: all .6s ease-in-out;
+/*   background-color: #394263; */
+  
+  border-radius: 20px;
+  
+}
+
+.sidenav.active {
+  transform: translateX(0);
+}
+
+.sidenav__close-icon {
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+  
+}
+
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: black;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+}
+
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.list-photo{
+	width:100%;
+	display: flex;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.list-items{
+	width: 180px;
+	height: 150px;
+	margin-left:36px;
+	background: yellow;
+	border-radius: 20px;
+}
+</style>
+
+
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/layout.css" type="text/css">
@@ -32,59 +120,55 @@ function deleteBoard(num) {
 </head>
 <body>
 
-<div class="header">
+
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
-</div>
-	
+
+<div class="section" style="background: url('${pageContext.request.contextPath}/resource/img/container1.png');">
 <div class="container">
     <div class="body-container" style="width: 700px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 강의공유 게시판 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/know_logo.png" style="width: 50px; height: 37.5px;">강의공유 게시판 </h3>
         </div>
         
         <div>
 			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
-			<tr height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
+			<tr height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; font-family: 'Jua', sans-serif;">
 			    <td colspan="2" align="center">
 				   ${dto.subject}
 			    </td>
 			</tr>
 			
 			<tr height="35" style="border-bottom: 1px solid #cccccc;">
-			    <td width="50%" align="left" style="padding-left: 5px;">
+			    <td width="50%" align="left" style="padding-left: 5px; font-family: 'Jua', sans-serif;">
 			       이름 : ${dto.userName}
 			    </td>
-			    <td width="50%" align="right" style="padding-right: 5px;">
+			    <td width="50%" align="right" style="padding-right: 5px; font-family: 'Jua', sans-serif;">
 			        ${dto.register_date } | 조회 ${dto.hitCount}
 			    </td>
 			</tr>
 			
-			<tr style="border-bottom: 1px solid #cccccc;">
+			<tr style="border-bottom: 1px solid #cccccc; font-family: 'Jua', sans-serif;" >
 			  <td colspan="2" align="left" style="padding: 10px 5px;" valign="top" height="200">
 			      ${dto.content}
-			      <video src="${dto.url}" controls>이 브라우저는 재생할 수 없습니다.</video>
+			    <iframe width="560" height="315" src="${dto.url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			   </td>
 			</tr>
-			
-
-			
 		
 			
-			
-			<tr height="35" style="border-bottom: 1px solid #cccccc;">
+			<tr height="35" style="border-bottom: 1px solid #cccccc; font-family: 'Jua', sans-serif;">
 			    <td colspan="2" align="left" style="padding-left: 5px;">
 					이전글 :
 					<c:if test="${not empty preReadDto}">
-						<a href="${pageContext.request.contextPath}/bbs/article.do?${query}&num=${preReadDto.num}">${preReadDto.subject}</a>
+						<a href="${pageContext.request.contextPath}/bbs_lecture/article.do?${query}&num=${preReadDto.num}">${preReadDto.subject}</a>
 					</c:if>
 			    </td>
 			</tr>
 			
-			<tr height="35" style="border-bottom: 1px solid #cccccc;">
+			<tr height="35" style="border-bottom: 1px solid #cccccc; font-family: 'Jua', sans-serif;">
 			    <td colspan="2" align="left" style="padding-left: 5px;">
 					다음글 :
 					<c:if test="${not empty nextReadDto}">
-						<a href="${pageContext.request.contextPath}/bbs/article.do?${query}&num=${nextReadDto.num}">${nextReadDto.subject}</a>
+						<a href="${pageContext.request.contextPath}/bbs_lecture/article.do?${query}&num=${nextReadDto.num}">${nextReadDto.subject}</a>
 					</c:if>
 			    </td>
 			</tr>
@@ -92,13 +176,13 @@ function deleteBoard(num) {
 			<tr height="45">
 			    <td>
 			          <c:if test="${sessionScope.member.userId==dto.userId}">
-			              <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/update.do?page=${page}&num=${dto.num}';">수정</button>
+			              <button type="button" class="btn" style="font-family: 'Jua', sans-serif;" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/update.do?page=${page}&num=${dto.num}';">수정</button>
 			       	  </c:if>
-			          <button type="button" class="btn" onclick="deleteBoard('${dto.num}');">삭제</button>
+			          <button type="button" class="btn" onclick="deleteBoard('${dto.num}');" style="font-family: 'Jua', sans-serif;">삭제</button>
 			    </td>
 			
 			    <td align="right">
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/list.do?${query}';">리스트</button>
+			        <button type="button" class="btn" style="font-family: 'Jua', sans-serif;" onclick="javascript:location.href='${pageContext.request.contextPath}/bbs_lecture/list.do?${query}';">리스트</button>
 			    </td>
 			</tr>
 			</table>
@@ -109,6 +193,7 @@ function deleteBoard(num) {
 
 <div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
+</div>
 </div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
