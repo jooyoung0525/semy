@@ -52,7 +52,7 @@
     <jsp:include page="/WEB-INF/views/layout/header.jsp"></jsp:include>
 	
 <div class="container">
-    <div class="body-container" style="width: 700px;">
+    <div class="body-container" style="width: 1080px;">
         <div class="body-title">
             <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
         </div>
@@ -89,17 +89,22 @@
 			        </p>
 			      </td>
 			  </tr>
-			  
-			  
-			  
-			  
-			  
-			  
-			  
-			  <tr align="left" style="border-bottom: 1px solid #cccccc;"> 
-			      <td width="100" bgcolor="#eeeeee" style="text-align: center; padding-top:5px;" valign="top">U&nbsp;&nbsp;R&nbsp;&nbsp;L</td>
+
+			
+			<tr align="left" style="border-bottom: 1px solid #cccccc;"> 
+			      <td width="100" bgcolor="#eeeeee" style="text-align: center; padding-top:5px;" valign="top">color<br>script</td>
 			      <td valign="top" style="padding:5px 0px 5px 10px;"> 
-			        <textarea name="url" rows="12" class="boxTA" style="width: 95%;">${mode=='update'? dto.url:'' }</textarea>
+			        <object type="text/html" data="http://colorscripter.com/"
+								width="1000px" height="500px"
+								style="overflow: auto; border: 3px ridge black"> </object>
+			      </td>
+			  </tr>
+
+
+			<tr align="left" style="border-bottom: 1px solid #cccccc;"> 
+			      <td width="100" bgcolor="#eeeeee" style="text-align: center; padding-top:5px;" valign="top">H&nbsp;T&nbsp;M&nbsp;L&nbsp;</td>
+			      <td valign="top" style="padding:5px 0px 5px 10px;"> 
+			        <textarea name="url" rows="12" class="boxTA" style="width: 95%;">${mode=='update'? dto.url:'위 코드를 복사를 하여 넣어주세요.' }</textarea>
 			      </td>
 			  </tr>
 			  
@@ -113,7 +118,7 @@
 			  <tr align="left" style="border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center; padding-top:5px;" valign="top">내&nbsp;&nbsp;&nbsp;&nbsp;용</td>
 			      <td valign="top" style="padding:5px 0px 5px 10px;"> 
-			        <textarea name="content" rows="12" class="boxTA" style="width: 95%;">${mode=='update'? dto.content:'' }</textarea>
+			        <textarea name="content" rows="5" class="boxTA" style="width: 95%;">${mode=='update'? dto.content:'' }</textarea>
 			      </td>
 			  </tr>
 			  </table>
