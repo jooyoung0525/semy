@@ -266,7 +266,7 @@ img {
 						<li><a href="${pageContext.request.contextPath}/code/clist.do">C</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/c++list.do">C++</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/javalist.do">JAVA</a></li>
-						<li><a href="${pageContext.request.contextPath}/code/httpcsslist.do">HTML/CSS</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/html/csslist.do">HTML/CSS</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/javascriptlist.do">JAVASCRIPT</a></li>
 					</ul></li>
 				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_know/list.do">지식인</a>

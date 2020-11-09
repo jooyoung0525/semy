@@ -119,7 +119,7 @@ margin-left: 30px;
         </div>
         
         <div>
-			<table style="width: 100%; margin-top: 20px; border-spacing: 0;">
+			<table style="width: 100%; margin-top: 20px; border-spacing: 0; font-family: 'Jua', sans-serif;">
 			   <tr height="35">
 			      <td align="left" width="50%">
 			          ${dataCount}개(${page}/${total_page} 페이지)
@@ -156,7 +156,7 @@ margin-left: 30px;
 
 			</table>
 			 
-			<table style="width: 700px; margin: 0px ; border-spacing: 0px;">
+			<table style="width: 700px; margin: 0px ; border-spacing: 0px; font-family: 'Jua', sans-serif;">
 			   <tr height="35">
 				<td align="center">
 					${dataCount!=0?paging:"등록된 게시물이 없습니다."}
@@ -164,26 +164,26 @@ margin-left: 30px;
 			   </tr>
 			</table>
 			
-			<table style="width: 650px; margin: 10px; border-spacing: 0px;">
+			<table style="width: 650px; margin: 10px; border-spacing: 0px; font-family: 'Jua', sans-serif;">
 			   <tr height="40">
 			      <td align="left" width="100">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category}list.do';">새로고침</button>
+			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category}list.do';" style="font-family: 'Jua', sans-serif;">새로고침</button>
 			      </td>
 			      <td align="center">
 			          <form name="searchForm" action="${pageContext.request.contextPath}/code/list.do" method="post">
-			              <select name="condition" class="selectField">
+			              <select name="condition" class="selectField" style="font-family: 'Jua', sans-serif;">
 			                  <option value="all"  ${condition=="all"?"selected='selected'":""}>제목+내용</option>
 			                  <option value="subject"  ${condition=="subject"?"selected='selected'":""}>제목</option>
 			                  <option value="userId" ${condition=="userId"?"selected='selected'":""}>작성자</option>
 			                  <option value="content"  ${condition=="content"?"selected='selected'":""}>내용</option>
 			                  <option value="created"  ${condition=="created"?"selected='selected'":""}>등록일</option>
 			            </select>
-			            <input type="text" name="keyword" class="boxTF" value="${keyword}">
-			            <button type="button" class="btn" onclick="searchList()">검색</button>
+			            <input type="text" name="keyword" class="boxTF" value="${keyword}" style="font-family: 'Jua', sans-serif;">
+			            <button type="button" class="btn" onclick="searchList()" style="font-family: 'Jua', sans-serif;">검색</button>
 			        </form>
 			      </td>
 			      <td align="right" width="100">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/created.do?category=${category }';">글올리기</button>
+			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/created.do?category=${category }';" style="font-family: 'Jua', sans-serif;">글올리기</button>
 			      </td>
 			   </tr>
 			</table>
@@ -194,9 +194,7 @@ margin-left: 30px;
 </div>
 </div>
 
-<div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
-</div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>

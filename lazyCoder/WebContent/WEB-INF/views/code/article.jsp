@@ -16,6 +16,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/util.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.min.js"></script>
 <style type="text/css">
+
 .container1{
 	width:1200px;
 	display: flex;
@@ -58,7 +59,7 @@ function deleteBoard(num) {
         </div>
         
         <div>
-			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			<table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse; font-family: 'Jua', sans-serif;">
 			<tr height="35" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
 			    <td colspan="2" align="center">
 				   ${dto.subject}
@@ -113,13 +114,13 @@ function deleteBoard(num) {
 			<tr height="45">
 			    <td>
 			    	<c:if test="${sessionScope.member.userId==dto.userId }">
-			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/update.do?page=${page}&num=${dto.num}';">수정</button>
+			          <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/update.do?page=${page}&num=${dto.num}';" style="font-family: 'Jua', sans-serif;">수정</button>
 			    	</c:if>
-			          <button type="button" class="btn" onclick="deleteBoard('${dto.num}');">삭제</button>
+			          <button type="button" class="btn" onclick="deleteBoard('${dto.num}');" style="font-family: 'Jua', sans-serif;">삭제</button>
 			    </td>
 			
 			    <td align="right">
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category }list.do?${query}';">리스트</button>
+			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category }list.do?${query}';" style="font-family: 'Jua', sans-serif;">리스트</button>
 			    </td>
 			</tr>
 			</table>
@@ -128,9 +129,7 @@ function deleteBoard(num) {
     </div>
 </div>
 
-<div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
-</div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>
