@@ -173,7 +173,7 @@ $(function(){
       <div class="body-container" style="width: 700px;">
          <div class="body-title">
  
-            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/recruit_logo.png" style="width: 50px; height: 37.5px;">책 추천 게시판 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/know_logo.png" style="width: 50px; height: 37.5px;">책 추천 게시판 </h3>
       
          </div>
 
