@@ -223,8 +223,15 @@ function article(num){
 	var url="${articleUrl}&num="+num;
 	location.href=url;
 }
+function article1(num){
+	var url="${articleUrl1}&num="+num;
+	location.href=url;
+}
 
 </script>
+
+
+
 </head>
 <body>
 	<div class="container">
@@ -319,22 +326,27 @@ function article(num){
 			</c:if>
 		<div class="main-frame" onclick="article('${dto.num}');">
 			<div class="img-box" style="background: url('${pageContext.request.contextPath}/uploads/bbs_recruit/${dto.imageFilename}');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			
-			<p>${dto.subject}</p>
-			<p>
+			<div style="margin:0 auto; margin-top:5px; width:140px; background-color:navy; ; color: white; border-radius: 10px;">
 			<c:choose>
-
 				<c:when test="${dto.leftDate>=10}">
-				D- ${dto.leftDate} 
+				마감까지 D- ${dto.leftDate} 
 				</c:when>
 				<c:when test="${dto.leftDate<0}">
-				 D+ ${-dto.leftDate} 
+				끝난채용 D+ ${-dto.leftDate} 
 				</c:when>
 				<c:when test="${dto.leftDate<10 && dto.leftDate>0}">
 				 마감임박! D- ${dto.leftDate} 
 				</c:when>
-				</c:choose></p>
+				</c:choose>
+			
+			</div>
+			</div>
+			
+			<p>${dto.subject}</p>
+			<p>
+			
+
+				</p>
 		</div>
 		</c:forEach>
 		
@@ -346,21 +358,18 @@ function article(num){
 	<p style="font-size: 18px;">📷 사진 게시판</p>
 		<div class="bbs" id="bbs-img">
 		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			
-			<p>글 제목</p>
-		</div>
-		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+		<div class="main-frame" >
+			<div class="img-box" style="background: url('');background-position: center;background-size:cover;background-position:center;">
 			</div>
 			<p>글 제목</p>
-		</div>
-		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+			</div>
+		<div class="main-frame" >
+			<div class="img-box" style="background: url('');background-position: center;background-size:cover;background-position:center;">
+			</div>
+			<p>글 제목</p>
+			</div>
+		<div class="main-frame" >
+			<div class="img-box" style="background: url('');background-position: center;background-size:cover;background-position:center;">
 			</div>
 			<p>글 제목</p>
 		</div>
@@ -369,26 +378,29 @@ function article(num){
 		</div>
 		<br><br><br><br><br><br><br><br><br>
 	<p style="font-size: 18px;">  📖    코더들의 책추천</p>
-		<div class="bbs" id="bbs-img">
+
+	<div class="bbs" id="bbs-img">
+		<c:forEach var="dto" items="${list1}">
 		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
+		<div class="main-frame" onclick="article1('${dto.num}');">
+			<div class="img-box" style="background: url('${pageContext.request.contextPath}/uploads/photo/${dto.imageFilename}');background-position: center;background-size:cover;background-position:center;">
+			
 			</div>
 			
-			<p>글 제목</p>
+			<p>${dto.bookName} | 저자 : ${dto.bookInfo } </p>
+			<p style="color:gold; font-size: 23px;">
+			    <c:choose>
+	               	<c:when test="${dto.rating==1}">★</c:when>
+	               	<c:when test="${dto.rating==2}">★★</c:when>
+	               	<c:when test="${dto.rating==3}">★★★</c:when>
+	               	<c:when test="${dto.rating==4}">★★★★</c:when>
+	                <c:when test="${dto.rating==5}">★★★★★</c:when>
+               </c:choose>
+            </p>
 		</div>
+		</c:forEach>  
 		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-		</div>
-		
-		<div class="main-frame">
-			<div class="img-box" style="background: url('${pageContext.request.contextPath}/resource/img/logo3.png');background-position: center;background-size:cover;background-position:center;">
-			</div>
-			<p>글 제목</p>
-		</div>
+
 		
 
 		</div>

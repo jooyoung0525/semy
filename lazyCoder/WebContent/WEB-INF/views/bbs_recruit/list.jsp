@@ -157,12 +157,15 @@ function article(num){
 				 ${dto.subject} <p>
 				<p style="font-family: 'Jua', sans-serif; font-size: 15px;">
 				
-				<c:choose>
-				<c:when test="${dto.leftDate>=0}">
-				채용마감까지 D- ${dto.leftDate} 
+			<c:choose>
+				<c:when test="${dto.leftDate>=5}">
+				마감까지 D- ${dto.leftDate} 
 				</c:when>
 				<c:when test="${dto.leftDate<0}">
-				 끝난 채용 D+ ${-dto.leftDate} 
+				끝난채용 D+ ${-dto.leftDate} 
+				</c:when>
+				<c:when test="${dto.leftDate<5 && dto.leftDate>0}">
+				 마감임박! D- ${dto.leftDate} 
 				</c:when>
 				</c:choose>
 				</p>
