@@ -231,6 +231,7 @@ public class CodeBoardDAOImpl implements CodeBoardDAO {
 			while(rs.next()) {
 				CodeBoardDTO dto=new CodeBoardDTO();
 				dto.setNum(rs.getInt("num"));
+				dto.setUserId(rs.getString("userId"));
 				dto.setCategory(rs.getString("category"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setHitCount(rs.getInt("hitCount"));
@@ -302,6 +303,7 @@ public class CodeBoardDAOImpl implements CodeBoardDAO {
 			while(rs.next()) {
 				CodeBoardDTO dto=new CodeBoardDTO();
 				dto.setNum(rs.getInt("num"));
+				dto.setUserId(rs.getString("userId"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setHitCount(rs.getInt("hitCount"));
 				dto.setCategory(rs.getString("category"));
