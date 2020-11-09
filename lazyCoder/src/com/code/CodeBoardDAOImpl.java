@@ -272,29 +272,31 @@ public class CodeBoardDAOImpl implements CodeBoardDAO {
 			sb.append("       register_date ");
 			sb.append(" FROM code b ");
 			sb.append(" JOIN member1 m ON b.userId = m.userId ");
+			sb.append("  WHERE category=? ");
 			
 			if(condition.equals("register_date")) {
 				keyword=keyword.replaceAll("(\\-|\\/|\\.)", "");
-				sb.append("  WHERE TO_CHAR(register_date, 'YYYYMMDD') = ? ");
+				sb.append("  AND (TO_CHAR(register_date, 'YYYYMMDD') = ?) ");
 			} else if(condition.equals("all")) {
-				sb.append("  WHERE INSTR(subject, ?) >= 1 OR INSTR(content, ?) >= 1 ");
-			} else {
-				sb.append("  WHERE INSTR("+condition+", ?) >= 1 ");
+				sb.append("  AND (INSTR(subject, ?) >= 1 OR INSTR(content, ?) >= 1) ");
+			}else if(condition.equals("userId")){
+					sb.append("  AND (INSTR(b.userId, ?) >= 1 )");
+				}else {
+				sb.append("  AND (INSTR("+condition+", ?) >= 1 )");
 			}
-			sb.append("  AND category=? ");
 			sb.append(" ORDER BY num DESC");
 			sb.append(" OFFSET ? ROWS FETCH FIRST ? ROWS ONLY");
 			
 			pstmt=conn.prepareStatement(sb.toString());
 			if(condition.equals("all")) {
-				pstmt.setString(1, keyword);
+				pstmt.setString(1, category);
 				pstmt.setString(2, keyword);
-				pstmt.setString(3, category);
+				pstmt.setString(3, keyword);
 				pstmt.setInt(4, offset);
 				pstmt.setInt(5, rows);
 			} else {
-				pstmt.setString(1, keyword);
-				pstmt.setString(2, category);
+				pstmt.setString(1, category);
+				pstmt.setString(2, keyword);
 				pstmt.setInt(3, offset);
 				pstmt.setInt(4, rows);
 			}
