@@ -276,7 +276,7 @@ function article1(num){
 					</a>
 				</div>
 				<div class="menu-item">
-				<a href="${pageContext.request.contextPath}/">
+				<a href="${pageContext.request.contextPath}/code/clist.do">
 					<img class="menu-items"
 						src="${pageContext.request.contextPath}/resource/img/coding1.png"
 					 onmouseover="this.src='${pageContext.request.contextPath}/resource/img/icon2.png'"

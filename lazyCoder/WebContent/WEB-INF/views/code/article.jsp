@@ -119,7 +119,7 @@ function deleteBoard(num) {
 			    </td>
 			
 			    <td align="right">
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/list.do?${query}';">리스트</button>
+			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category }list.do?${query}';">리스트</button>
 			    </td>
 			</tr>
 			</table>
