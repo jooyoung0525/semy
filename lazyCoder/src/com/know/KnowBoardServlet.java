@@ -84,7 +84,7 @@ public class KnowBoardServlet extends MyUploadServlet {
 	      String cp=req.getContextPath();
 	      
 	      String page=req.getParameter("page");
-	      int current_page=2;
+	      int current_page=1;
 	      if(page!=null) {
 	         current_page=Integer.parseInt(page);
 	      }
