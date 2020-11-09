@@ -60,7 +60,7 @@
         
         <div>
 			<form name="noticeForm" method="post" enctype="multipart/form-data">
-			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse; font-family: 'Jua', sans-serif;">
 			  <tr align="left" height="40" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 			      <td style="padding-left:10px;"> 

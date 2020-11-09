@@ -1,4 +1,4 @@
-package com.bbs_free;
+package com.bbs_best;
 
 public class BoardDTO {
 private int num;
@@ -9,21 +9,6 @@ private String userName;
 private String content;
 private String created;
 private int hitCount;
-private long gap;
-private int memberClass;
-
-public int getMemberClass() {
-	return memberClass;
-}
-public void setMemberClass(int memberClass) {
-	this.memberClass = memberClass;
-}
-public long getGap() {
-	return gap;
-}
-public void setGap(long gap) {
-	this.gap = gap;
-}
 public int getNum() {
 	return num;
 }
@@ -42,7 +27,6 @@ public String getUserId() {
 public void setUserId(String userId) {
 	this.userId = userId;
 }
-
 public String getSubject() {
 	return subject;
 }
@@ -73,6 +57,5 @@ public int getHitCount() {
 public void setHitCount(int hitCount) {
 	this.hitCount = hitCount;
 }
-
 
 }

@@ -435,7 +435,7 @@ public class ErrorDAOImpl implements ErrorDAO {
 			if (category == "all") {
 				sb.append("SELECT boardNum, e.userId, userName,  ");
 				sb.append("       subject, groupNum, orderNo, depth, hitCount,  ");
-				sb.append("       TO_CHAR(created, 'YYYY-MM-DD') created , category");
+				sb.append("       TO_CHAR(created, 'YYYY-MM-DD') created , category, memberClass");
 				sb.append(" FROM error e  ");
 				sb.append(" JOIN member1 m ON e.userId=m.userId  ");
 				if(condition.equals("created")) {
@@ -465,7 +465,7 @@ public class ErrorDAOImpl implements ErrorDAO {
 			} else {
 				sb.append("SELECT boardNum, e.userId, userName,  ");
 				sb.append("       subject, groupNum, orderNo, depth, hitCount,  ");
-				sb.append("       TO_CHAR(created, 'YYYY-MM-DD') created , category");
+				sb.append("       TO_CHAR(created, 'YYYY-MM-DD') created , category, memberClass");
 				sb.append(" FROM error e  ");
 				sb.append(" JOIN member1 m ON e.userId=m.userId  ");
 				if (condition.equals("created")) {
@@ -542,7 +542,7 @@ public class ErrorDAOImpl implements ErrorDAO {
 
 		try {
 			sql = "SELECT boardNum, e.userId, userName, subject, content, hitCount, created, "
-					+ "  groupNum, orderNo, depth, parent, category"
+					+ "  groupNum, orderNo, depth, parent, category, memberClass"
 					+ "  FROM error e JOIN member1 m ON e.userId = m.userId WHERE boardNum=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNum);
@@ -561,6 +561,7 @@ public class ErrorDAOImpl implements ErrorDAO {
 				dto.setDepth(rs.getInt("depth"));
 				dto.setParent(rs.getInt("parent"));
 				dto.setCategory(rs.getString("category"));
+				dto.setMemberClass(rs.getInt("memberClass"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

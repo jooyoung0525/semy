@@ -257,7 +257,7 @@ img {
 				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_free/list_free.do">커뮤니티</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/bbs_free/list_free.do">자유게시판</a></li>
-						<li><a href="#">HOT게시판</a></li>
+						<li><a href="${pageContext.request.contextPath}/bbs_best/list.do">HOT게시판</a></li>
 						<li><a href="${pageContext.request.contextPath}/bbs_photo/list.do">사진게시판</a></li>
 					</ul></li>
 
@@ -266,10 +266,10 @@ img {
 						<li><a href="${pageContext.request.contextPath}/code/clist.do">C</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/c++list.do">C++</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/javalist.do">JAVA</a></li>
-						<li><a href="${pageContext.request.contextPath}/code/httpcsslist.do">HTML/CSS</a></li>
+						<li><a href="${pageContext.request.contextPath}/code/html/csslist.do">HTML/CSS</a></li>
 						<li><a href="${pageContext.request.contextPath}/code/javascriptlist.do">JAVASCRIPT</a></li>
 					</ul></li>
-				<li><a class="drop" href="#">지식인</a>
+				<li><a class="drop" href="${pageContext.request.contextPath}/bbs_know/list.do">지식인</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/bbs_know/list.do">좋은책추천해요</a></li>
 						<li><a href="${pageContext.request.contextPath}/bbs_lecture/list.do">유용한 강의 공유</a></li>

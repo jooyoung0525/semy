@@ -54,12 +54,12 @@
 <div class="container">
     <div class="body-container" style="width: 1080px;">
         <div class="body-title">
-            <h3><span style="font-family: Webdings">2</span> 게시판 </h3>
+            <h3 style="font-family: 'Jua', sans-serif; "> <img src="${pageContext.request.contextPath}/resource/img/source_logo.png" style="width: 50px; height: 37.5px;">${category }게시판 </h3>
         </div>
         
         <div>
 			<form name="boardForm" method="post">
-			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse;">
+			  <table style="width: 100%; margin: 20px auto 0px; border-spacing: 0px; border-collapse: collapse; font-family: 'Jua', sans-serif;">
 			  <tr align="left" height="40" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 			      <td style="padding-left:10px;"> 
@@ -78,7 +78,7 @@
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center;">작성자</td>
 			      <td style="padding-left:10px;"> 
 			          <p style="margin-top: 1px; margin-bottom: 5px;">
-			            <select class="selectField" id="category" name="category" >
+			            <select class="selectField" id="category" name="category" style="font-family: 'Jua', sans-serif;">
 			                <option value="">::선 택::</option>
 			                <option value="c" ${dto.category.equals("c") ? "selected='selected'" : ""}>C언어</option>
 			                <option value="c++" ${dto.category.equals("c++") ? "selected='selected'" : ""}>C++</option>
@@ -104,7 +104,7 @@
 			<tr align="left" style="border-bottom: 1px solid #cccccc;"> 
 			      <td width="100" bgcolor="#eeeeee" style="text-align: center; padding-top:5px;" valign="top">H&nbsp;T&nbsp;M&nbsp;L&nbsp;</td>
 			      <td valign="top" style="padding:5px 0px 5px 10px;"> 
-			        <textarea name="url" rows="12" class="boxTA" style="width: 95%;">${mode=='update'? dto.url:'위 코드를 복사를 하여 넣어주세요.' }</textarea>
+			        <textarea name="url" rows="12" class="boxTA" style="width: 95%; font-family: 'Jua', sans-serif;">${mode=='update'? dto.url:'위 코드를 복사를 하여 넣어주세요.' }</textarea>
 			      </td>
 			  </tr>
 			  
@@ -123,13 +123,13 @@
 			  </tr>
 			  </table>
 			
-			  <table style="width: 100%; border-spacing: 0px;">
+			  <table style="width: 100%; border-spacing: 0px; font-family: 'Jua', sans-serif;">
 			     <tr height="45"> 
 			      <td align="center" >
 
-			        <button type="button" class="btn" onclick="sendOk();">${mode=='update'?'수정완료':'등록하기'}</button>
-			        <button type="reset" class="btn">다시입력</button>
-			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/list.do';">${mode=='update'?'수정취소':'등록취소'}</button>
+			        <button type="button" class="btn" onclick="sendOk();" style="font-family: 'Jua', sans-serif;">${mode=='update'?'수정완료':'등록하기'}</button>
+			        <button type="reset" class="btn" style="font-family: 'Jua', sans-serif;">다시입력</button>
+			        <button type="button" class="btn" onclick="javascript:location.href='${pageContext.request.contextPath}/code/${category }list.do';" style="font-family: 'Jua', sans-serif;">${mode=='update'?'수정취소':'등록취소'}</button>
 			      </td>
 			    </tr>
 			  </table>
@@ -139,9 +139,7 @@
     </div>
 </div>
 
-<div class="footer">
     <jsp:include page="/WEB-INF/views/layout/footer.jsp"></jsp:include>
-</div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resource/jquery/js/jquery.ui.datepicker-ko.js"></script>

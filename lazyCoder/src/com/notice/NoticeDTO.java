@@ -10,7 +10,15 @@ public class NoticeDTO {
 	private long fileSize;
 	
 	private long gap;
+	private int memberClass;
 	
+	
+	public int getMemberClass() {
+		return memberClass;
+	}
+	public void setMemberClass(int memberClass) {
+		this.memberClass = memberClass;
+	}
 	public int getNum() {
 		return num;
 	}
