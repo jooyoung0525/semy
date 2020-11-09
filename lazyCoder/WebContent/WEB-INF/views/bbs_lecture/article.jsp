@@ -62,8 +62,12 @@ function deleteBoard(num) {
 			<tr style="border-bottom: 1px solid #cccccc;">
 			  <td colspan="2" align="left" style="padding: 10px 5px;" valign="top" height="200">
 			      ${dto.content}
+			      <video src="${dto.url}" controls>이 브라우저는 재생할 수 없습니다.</video>
 			   </td>
 			</tr>
+			
+
+			
 		
 			
 			
