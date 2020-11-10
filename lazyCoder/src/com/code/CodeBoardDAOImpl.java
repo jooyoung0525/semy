@@ -162,11 +162,14 @@ public class CodeBoardDAOImpl implements CodeBoardDAO {
 			sql="SELECT COUNT(*) FROM code b  "
 				 + " JOIN member1 m ON b.userId = m.userId ";
 			
-			if(condition.equals("register_date")) {
+			if(condition.equals("created")) {
 				keyword=keyword.replaceAll("(\\-|\\/|\\.)", "");
-				sql+=" WHERE TO_CHAR(created, 'YYYYMMDD') = ?";
+				sql+=" WHERE TO_CHAR(register_date, 'YYYYMMDD') = ?";
 			} else if(condition.equals("all")){
 				sql+=" WHERE INSTR(subject, ?) >= 1 OR INSTR(content, ?) >= 1 ";
+			}else if (condition.equals("userId")) {
+				sql+=" WHERE INSTR(b.userId, ?) >= 1";
+				
 			} else { // subject, content
 				sql+=" WHERE INSTR("+condition+", ?) >= 1";
 			}
@@ -274,7 +277,7 @@ public class CodeBoardDAOImpl implements CodeBoardDAO {
 			sb.append(" JOIN member1 m ON b.userId = m.userId ");
 			sb.append("  WHERE category=? ");
 			
-			if(condition.equals("register_date")) {
+			if(condition.equals("created")) {
 				keyword=keyword.replaceAll("(\\-|\\/|\\.)", "");
 				sb.append("  AND (TO_CHAR(register_date, 'YYYYMMDD') = ?) ");
 			} else if(condition.equals("all")) {
